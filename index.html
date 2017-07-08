@@ -16,8 +16,78 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/main.css">
   </head>
   <body>
+    <header>
+      <nav class="purple darken-4" role="navigation">
+        <div class="nav-wrapper container">
+          <div class="brand-logo">ADR Reporting Form</div>
+          <ul class="right hide-on-med-and-down">
+            <li class="active"><a href="#"><i class="material-icons left">home</i>Home</a></li>
+            <li><a href="#"><i class="material-icons left">info</i>About</a></li>
+            <li><a href="#"><i class="material-icons left">help</i>FAQ</a></li>
+            <li><a href="#"><i class="material-icons left">error</i>Support</a></li>
+          </ul>
+          <ul id="nav-mobile" class="side-nav">
+            <li class="active"><a href="#"><i class="material-icons left">home</i>Home</a></li>
+            <li><a href="#"><i class="material-icons left">info</i>About</a></li>
+            <li><a href="#"><i class="material-icons left">help</i>FAQ</a></li>
+            <li><a href="#"><i class="material-icons left">error</i>Support</a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="card">
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width blue lighten-4">
+              <li class="tab"><a class="active indigo-text text-darken-4" href="#patient">Patient</a></li>
+              <li class="tab"><a class="indigo-text text-darken-4" href="#reaction">Reaction</a></li>
+              <li class="tab"><a class="indigo-text text-darken-4" href="#outcome">Outcome</a></li>
+              <li class="tab"><a class="indigo-text text-darken-4" href="#reporter">Reporter</a></li>
+              <div class="indicator indigo darken-4" style="z-index:1"></div>
+            </ul>
+          </div>
+          <div class="card-content">
+            <div id="patient">Patient</div>
+            <div id="reaction">Reaction</div>
+            <div id="outcome">Outcome</div>
+            <div id="reporter">Reporter</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="page-footer teal darken-1">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">ADR Reporting Form</h5>
+            <p class="grey-text text-lighten-4">A portal for healthcare professionals to report Adverse Drug Reactions in order to facilitate better services</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#">Home</a></li>
+              <li><a class="grey-text text-lighten-3" href="#">About</a></li>
+              <li><a class="grey-text text-lighten-3" href="#">FAQ</a></li>
+              <li><a class="grey-text text-lighten-3" href="#">Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2017 Divay Prakash
+        </div>
+      </div>
+    </footer>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <!-- Materialize JS -->

@@ -46,7 +46,7 @@
         <div class="card">
           <div class="card-tabs">
             <ul class="tabs tabs-fixed-width blue lighten-4">
-              <li class="tab"><a class="active indigo-text text-darken-4" href="#patient">Patient</a></li>
+              <li class="tab"><a class="indigo-text text-darken-4" href="#patient">Patient</a></li>
               <li class="tab"><a class="indigo-text text-darken-4" href="#reaction">Reaction</a></li>
               <li class="tab"><a class="indigo-text text-darken-4" href="#medication">Medication</a></li>
               <li class="tab"><a class="indigo-text text-darken-4" href="#reporter">Reporter</a></li>
@@ -57,12 +57,11 @@
             <div id="patient" class="row">
               <form class="col l10 offset-l1 s12">
                 <div class="input-field">
-                  <input id="initials" type="text" class="validate" data-length="10">
+                  <input id="initials" type="text" class="validate" data-length="10" placeholder="">
                   <label for="initials">Patient Initials</label>
                 </div>
                 <br>
-                Gender
-                <br>
+                <div class="field-title">Gender</div>
                 <p>
                   <input name="gender" type="radio" id="male">
                   <label for="male">Male</label>
@@ -73,12 +72,11 @@
                 </p>
                 <br>
                 <div class="input-field">
-                  <input id="age" type="text" class="validate" data-length="20">
+                  <input id="age" type="text" class="validate" data-length="20" placeholder="">
                   <label for="age">Age</label>
                 </div>
                 <br>
-                Weight (0-300)
-                <br>
+                <div class="field-title">Weight (0-300)</div>
                 <div class="row range-field-wrapper">
                   <div class="col s10">
                     <p class="range-field">
@@ -96,19 +94,16 @@
             <div id="reaction" class="row">
               <form class="col l10 offset-l1 s12">
                 <br>
-                Describe reaction or problem in short, concise phrases. To add phrases, just enter some text and press enter.
-                <br>
+                <div class="field-title">Describe reaction or problem in short, concise phrases. To add phrases, just enter some text and press enter.</div>
                 <div class="chips"></div>
                 <br>
                 <br>
-                Date of reaction start
-                <br>
+                <div class="field-title">Date of reaction start</div>
                 <input type="date" class="datepicker" id="date-start">
                 <br>
                 <br>
                 <br>
-                Date of reaction end
-                <br>
+                <div class="field-title">Date of reaction end</div>
                 <input type="date" class="datepicker" id="date-end">
                 <br>
                 <br>

@@ -12,7 +12,28 @@ main {
   margin: 4rem 0 4rem 0;
 }
 
+.input-field label {
+  color: #000;
+}
+
 .range-field-wrapper .range-field {
   margin-top: 1rem !important;
   padding-top: 0;
+}
+
+.modal.bottom-sheet {
+  max-height: 70%;
+}
+
+.field-title {
+  font-size: 0.8rem;
+}
+
+#medication .col .card {
+  margin-top: 0;
+}
+
+.radio-inline {
+  display: inline;
+  margin-right: 2rem;
 }

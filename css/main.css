@@ -54,3 +54,7 @@ main {
   background-color: transparent;
   box-shadow: none;
 }
+.menu-fab {
+  right: 23px;
+  bottom: 93px;
+}

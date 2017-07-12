@@ -5,6 +5,17 @@
 */
 $(document).ready(function(){
   $('.button-collapse').sideNav();
+  var helpOpen = false;
+  $('#help-fab').click(function(e) {
+    if (helpOpen) {
+      $('#help-tap-target').tapTarget('close');
+      helpOpen = false;
+    }
+    else {
+      $('#help-tap-target').tapTarget('open');
+      helpOpen = true;
+    }
+  });
   $('.chips').material_chip();
   $('.datepicker').pickadate({
     format: 'dd/mm/yyyy',

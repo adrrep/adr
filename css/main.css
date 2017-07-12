@@ -58,3 +58,13 @@ main {
   right: 23px;
   bottom: 93px;
 }
+.tap-target-content a, .tap-target-content a:visited, .tap-target-content a:active {
+  color: #FFF;
+  text-decoration: none;
+  border-bottom: 1px white dotted;
+  transition: all .3s ease-in-out;
+}
+.tap-target-content a:hover {
+  color: grey;
+  border-bottom: 1px grey solid;
+}

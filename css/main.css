@@ -71,3 +71,7 @@ main {
 #medication .col .card .card-action button:nth-child(odd) {
   margin-right: 1.25em;
 }
+.support .container .card .card-content .row .card-panel {
+  margin: 12px 12px 0 12px;
+  padding: 20px;
+}

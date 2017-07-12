@@ -27,6 +27,7 @@ main {
 
 .field-title {
   font-size: 0.8rem;
+  margin-top: 0;
 }
 
 #medication .col .card {

@@ -1,3 +1,8 @@
+/*
+* ADR Reporting
+* Copyright (C) 2017 Divay Prakash
+* GNU Affero General Public License 3.0 (https://github.com/divayprakash/adr/blob/master/LICENSE)
+*/
 $(document).ready(function(){
   $('.chips').material_chip();
   $('.datepicker').pickadate({

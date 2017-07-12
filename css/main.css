@@ -23,7 +23,7 @@ main {
   padding-top: 0;
 }
 .modal.bottom-sheet {
-  max-height: 70%;
+  max-height: 80%;
 }
 .field-title {
   font-size: 0.8rem;

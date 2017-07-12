@@ -68,3 +68,6 @@ main {
   color: grey;
   border-bottom: 1px grey solid;
 }
+#medication .col .card .card-action button:nth-child(odd) {
+  margin-right: 1.25em;
+}

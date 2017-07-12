@@ -4,6 +4,7 @@
 * GNU Affero General Public License 3.0 (https://github.com/divayprakash/adr/blob/master/LICENSE)
 */
 $(document).ready(function(){
+  $('.button-collapse').sideNav();
   $('.chips').material_chip();
   $('.datepicker').pickadate({
     format: 'dd/mm/yyyy',

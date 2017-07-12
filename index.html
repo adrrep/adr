@@ -49,6 +49,7 @@
               <li class="tab"><a class="indigo-text text-darken-4" href="#patient">Patient</a></li>
               <li class="tab"><a class="indigo-text text-darken-4" href="#reaction">Reaction</a></li>
               <li class="tab"><a class="indigo-text text-darken-4" href="#medication">Medication</a></li>
+              <li class="tab"><a class="indigo-text text-darken-4" href="#outcome">Outcome</a></li>
               <li class="tab"><a class="indigo-text text-darken-4" href="#reporter">Reporter</a></li>
               <div class="indicator indigo darken-4" style="z-index:1"></div>
             </ul>
@@ -135,6 +136,103 @@
                 </div>
                 <div id="insert"></div>
               </div>
+            </div>
+            <div id="outcome" class="row">
+              <form class="col l10 offset-l1 s12">
+                <div class="input-field">
+                  <textarea id="concomitant" class="materialize-textarea validate" data-length="100" placeholder=""></textarea>
+                  <label for="concomitant">
+                    Concomitant medical product including self medication and herbal remedies with therapy dates (exclude those used to treat reaction)
+                  </label>
+                </div>
+                <br>
+                <div class="input-field">
+                  <textarea id="test" class="materialize-textarea validate" data-length="100" placeholder=""></textarea>
+                  <label for="test">Relevant tests / laboratory data with dates</label>
+                </div>
+                <br>
+                <br>
+                <div class="input-field">
+                  <textarea id="history" class="materialize-textarea validate" data-length="100" placeholder=""></textarea>
+                  <label for="history">
+                    Other relevant history including pre-existing medical conditions (e.g. allergies, race, pregnancy, smoking, alcohol use, hepatic/ renal dysfunction etc)
+                  </label>
+                </div>
+                <br>
+                <div class="field-title">Seriousness of the reaction</div>
+                <p>
+                  <input name="serious" type="radio" id="death">
+                  <label for="death">Death</label>
+                </p>
+                <p>
+                  <input name="serious" type="radio" id="life">
+                  <label for="life">Life threatening</label>
+                </p>
+                <p>
+                  <input name="serious" type="radio" id="hospital">
+                  <label for="hospital">Hospitalization-initial or prolonged</label>
+                </p>
+                <p>
+                  <input name="serious" type="radio" id="disability">
+                  <label for="disability">Disability</label>
+                </p>
+                <p>
+                  <input name="serious" type="radio" id="congenital">
+                  <label for="congenital">Congenitial anomaly</label>
+                </p>
+                <p>
+                  <input name="serious" type="radio" id="intervention">
+                  <label for="intervention">Required intervention to prevent permanent impairment/damage</label>
+                </p>
+                <p>
+                  <input name="serious" type="radio" id="serious-other">
+                  <label for="serious-other">Other (specify)</label>
+                </p>
+                <br>
+                <div class="input-field">
+                  <input disabled id="serious-spec" type="text" class="validate" data-length="20" placeholder="">
+                  <label for="serious-spec">Specify seriousness of reaction</label>
+                </div>
+                <br>
+                <div class="field-title">Outcomes</div>
+                <p>
+                  <input name="outcome" type="radio" id="fatal">
+                  <label for="fatal">Fatal</label>
+                </p>
+                <p>
+                  <input name="outcome" type="radio" id="recovering">
+                  <label for="recovering">Recovering</label>
+                </p>
+                <p>
+                  <input name="outcome" type="radio" id="unknown">
+                  <label for="unknown">Unknown</label>
+                </p>
+                <p>
+                  <input name="outcome" type="radio" id="continuing">
+                  <label for="continuing">Continuing</label>
+                </p>
+                <p>
+                  <input name="outcome" type="radio" id="recovered">
+                  <label for="recovered">Required intervention to prevent permanent impairment/damage</label>
+                </p>
+                <p>
+                  <input name="outcome" type="radio" id="outcome-other">
+                  <label for="outcome-other">Other (specify)</label>
+                </p>
+                <br>
+                <div class="input-field">
+                  <input disabled id="outcome-spec" type="text" class="validate" data-length="20" placeholder="">
+                  <label for="outcome-spec">Specify outcome of reaction</label>
+                </div>
+                <br>
+                <a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</a>
+                <br>
+                <br>
+                <div class="card-panel red white-text">
+                  <h5>Important!</h5>
+                  Please note that you will not be able to edit the entered information hereafter. Kindly review all data carefully before clicking 'Submit'.
+                </div>
+              </form>
             </div>
             <div id="reporter" class="row">
               <form class="col l10 offset-l1 s12">

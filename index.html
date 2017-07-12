@@ -374,6 +374,52 @@
               <label for="reason">Reason for use</label>
             </div>
             <br>
+            <div class="field-title">Reaction abated after drug stopped or dose reduced</div>
+            <p>
+              <input name="stop" type="radio" id="stop-yes" value="yes">
+              <label for="stop-yes">Yes</label>
+            </p>
+            <p>
+              <input name="stop" type="radio" id="stop-no" value="no">
+              <label for="stop-no">No</label>
+            </p>
+            <p>
+              <input name="stop" type="radio" id="stop-unknown" value="unknown">
+              <label for="stop-unknown">Unknown</label>
+            </p>
+            <p>
+              <input name="stop" type="radio" id="stop-na" value="na">
+              <label for="stop-na">NA</label>
+            </p>
+            <br>
+            <div class="input-field">
+              <input disabled id="stop-reduced" type="number" class="validate" data-length="5" placeholder="">
+              <label for="stop-reduced">Reduced dose</label>
+            </div>
+            <br>
+            <div class="field-title">Reaction reappeared after reintroduction</div>
+            <p>
+              <input name="reintro" type="radio" id="reintro-yes" value="yes">
+              <label for="reintro-yes">Yes</label>
+            </p>
+            <p>
+              <input name="reintro" type="radio" id="reintro-no" value="no">
+              <label for="reintro-no">No</label>
+            </p>
+            <p>
+              <input name="reintro" type="radio" id="reintro-unknown" value="unknown">
+              <label for="reintro-unknown">Unknown</label>
+            </p>
+            <p>
+              <input name="reintro" type="radio" id="reintro-na" value="na">
+              <label for="reintro-na">NA</label>
+            </p>
+            <br>
+            <div class="input-field">
+              <input disabled id="reintro-reduced" type="number" class="validate" data-length="5" placeholder="">
+              <label for="reintro-reduced">Reduced dose</label>
+            </div>
+            <br>
             <button class="modal-action modal-close waves-effect waves-light btn" onclick="medicationAdd()"><i class="material-icons right">add</i>Add</button>
           </form>
         </div>

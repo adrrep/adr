@@ -16,6 +16,10 @@ main {
   color: #000;
 }
 
+.tabs-fixed-width {
+  overflow-x: hidden;
+}
+
 .range-field-wrapper .range-field {
   margin-top: 1rem !important;
   padding-top: 0;

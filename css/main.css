@@ -95,3 +95,14 @@ main {
   height: 24px;
   width: 24px;
 }
+@media only screen and (max-width: 768px) {
+  .icon-inline i, .compatibility img {
+    margin-right: 0.25rem;
+    line-height: 1.5;
+    vertical-align: middle;
+  }
+  .icon-inline i:not(:first-child):before, .compatibility img:not(:first-child):before {
+    margin-left: 0;
+    content: '\A';
+  }
+}

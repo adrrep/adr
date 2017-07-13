@@ -75,3 +75,10 @@ main {
   margin: 12px 12px 0 12px;
   padding: 20px;
 }
+.about .container .card .card-content table {
+  margin-left: 8px;
+}
+.about .container .card .card-content table tr td {
+  padding: 0;
+  margin: 0;
+}

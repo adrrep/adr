@@ -106,3 +106,9 @@ main {
     content: '\A';
   }
 }
+@media only screen and (max-width: 600px) {
+  .menu-fab {
+    right: 23px;
+    bottom: 23px;
+  }
+}

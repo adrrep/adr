@@ -82,3 +82,16 @@ main {
   padding: 0;
   margin: 0;
 }
+.icon-inline i, .compatibility img {
+  margin-right: 1rem;
+  line-height: 1.5;
+  display: inline;
+  vertical-align: middle;
+}
+.icon-inline i:not(:first-child), .compatibility img:not(:first-child) {
+  margin-left: 3rem;
+}
+.compatibility img {
+  height: 24px;
+  width: 24px;
+}

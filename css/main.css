@@ -98,6 +98,11 @@ main {
 span.breakline {
   display: none;
 }
+@media only screen and (min-width: 1300px) {
+  span.input-breakline {
+    display: none;
+  }
+}
 @media only screen and (max-width: 768px) {
   .icon-inline i, .compatibility img {
     margin-right: 0.25rem;

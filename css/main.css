@@ -95,13 +95,21 @@ main {
   height: 24px;
   width: 24px;
 }
+span.breakline {
+  display: none;
+}
 @media only screen and (max-width: 768px) {
   .icon-inline i, .compatibility img {
     margin-right: 0.25rem;
   }
-  .icon-inline i:not(:first-child):before, .compatibility img:not(:first-child):before {
+  .icon-inline i:not(:first-child), .compatibility img:not(:first-child) {
     margin-left: 0;
-    content: '\A';
+  }
+  .compatibility img {
+    margin-bottom: 6px;
+  }
+  span.breakline {
+    display: inline;
   }
 }
 @media only screen and (max-width: 600px) {

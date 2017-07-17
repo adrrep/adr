@@ -12,6 +12,27 @@ main {
   flex: 1 0 auto;
   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
+.brand-blue.darken-1 {
+  background: #382c59 !important;
+}
+.brand-blue {
+  background: #1b78ba !important;
+}
+.brand-blue.lighten-1 {
+  background: #5aa8d5 !important;
+}
+.brand-red.darken-1 {
+  background: #9a1139 !important;
+}
+.brand-red {
+  background: #ab1740 !important;
+}
+.brand-red.lighten-1 {
+  background: #e40055 !important;
+}
+.brand-grey {
+  background: #808180 !important;
+}
 .card {
   margin: 4rem 0 4rem 0;
 }

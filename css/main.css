@@ -36,8 +36,9 @@ main {
 .card {
   margin: 4rem 0 4rem 0;
 }
-.input-field label {
+.input-field label, .field-title {
   color: #000;
+  font-size: 1rem !important;
 }
 .range-field-wrapper .range-field {
   margin-top: 1rem !important;

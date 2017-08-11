@@ -12,6 +12,12 @@ main {
   flex: 1 0 auto;
   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
+nav .responsive-img {
+  height: 62px;
+  width: auto;
+  margin: 1px 0 1px 1px;
+  padding: 0;
+}
 .brand-blue.darken-1 {
   background: #382c59 !important;
 }
@@ -126,6 +132,9 @@ span.breakline {
   }
 }
 @media only screen and (max-width: 768px) {
+  nav .responsive-img {
+    display: none;
+  }
   .icon-inline i, .compatibility img {
     margin-right: 0.25rem;
   }

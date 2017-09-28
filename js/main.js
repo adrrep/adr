@@ -68,4 +68,5 @@ function medicationAdd() {
   var reintro = $("input[type='radio'][name='reintro']:checked").val();
   var reintroReduced = 0;
   if (reintro == "yes")  reintroReduced = $('reintro-reduced').val();
+  $('#medication-add').modal('close');
 }

@@ -35,7 +35,7 @@ function enableSpecFieldOnRadio(radioId, fieldSelector) {
   $('input[type=radio][name=' + radioId + ']').on('change', function() {
     switch($(this).val()) {
       case 'yes':
-        $(field).prop('disabled', false);
+        $(fieldSelector).prop('disabled', false);
         break;
       case 'no':
       case 'unknown':

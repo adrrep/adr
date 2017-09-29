@@ -78,4 +78,5 @@ function formReset(){
   $('#medication-form').each(function(){
       this.reset();
   });
+  $('#medication-add').scrollTop(0);
 }

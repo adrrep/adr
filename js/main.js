@@ -70,6 +70,7 @@ function medicationAdd() {
   if (reintro == "yes")  reintroReduced = $('reintro-reduced').val();
   formReset();
   $('#medication-add').modal('close');
+  Materialize.toast('Medication added!', 4000);
   var divToAdd = "<div class='card blue lighten-4'><div class='card-content'><span class='card-title'>"+ name +"</span><p>"+ manufacturer + " / " + expiry + "</p></div><div class='card-action'><button class='waves-effect waves-light btn'><i class='material-icons right'>mode_edit</i>Edit</button><button class='waves-effect waves-light btn'><i class='material-icons right'>delete</i>Delete</button></div></div>";
   $('#insert').before(divToAdd);
 }

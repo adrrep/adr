@@ -69,13 +69,14 @@ nav .responsive-img {
 }
 .fab-tip {
   position: fixed;
-  right: 4rem;
-  padding: 0px 1.5rem;
+  right: 5.5rem;
+  padding: 0px 1rem;
   text-align: right;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.7);
   box-shadow: none;
   border-radius: 24px;
   color: #1a237e;
+  font-weight: bold;
   width: auto;
 }
 .fab-tip:hover {

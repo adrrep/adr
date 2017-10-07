@@ -29,7 +29,23 @@ $(document).ready(function(){
   $('#medication-add').modal();
   enableSpecFieldOnRadio('stop','#stop-reduced');
   enableSpecFieldOnRadio('reintro','#reintro-reduced');
+  setupTabs();
 });
+
+function setupTabs() {
+  var tabUl = document.getElementById('tabs-list');
+  var tabs = tabUl.getElementsByTagName('li');
+  for (var i = 0; i < tabs.length; i++) {
+    if (tabs[i].classList.contains('disabled')) {
+      tabs[i].classList.remove('lighten-4');
+      tabs[i].classList.add('lighten-5');
+    }
+    else {
+      tabs[i].classList.remove('lighten-5');
+      tabs[i].classList.add('lighten-4');
+    }
+  }
+}
 
 function enableSpecFieldOnRadio(radioId, fieldSelector) {
   $('input[type=radio][name=' + radioId + ']').on('change', function() {

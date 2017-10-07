@@ -47,6 +47,35 @@ function setupTabs() {
   }
 }
 
+function formSubmit(id) {
+  switch(id) {
+    case 'patient-submit':
+      gotoNextTab('patient-tab', 'reaction-tab', 'reaction');
+      break;
+    case 'reaction-submit':
+      gotoNextTab('reaction-tab', 'medication-tab', 'medication');
+      break;
+    case 'medication-submit':
+      gotoNextTab('medication-tab', 'outcome-tab', 'outcome');
+      break;
+    case 'outcome-submit':
+      gotoNextTab('outcome-tab', 'reporter-tab', 'reporter');
+      break;
+    case 'reporter-submit':
+      alert('TODO!!!');
+      break;
+  }
+}
+
+function gotoNextTab(present, next, sel) {
+  var presentTab = document.getElementById(present);
+  var nextTab = document.getElementById(next);
+  presentTab.classList.add('disabled');
+  nextTab.classList.remove('disabled');
+  setupTabs();
+  $('ul.tabs').tabs('select_tab', sel);
+}
+
 function enableSpecFieldOnRadio(radioId, fieldSelector) {
   $('input[type=radio][name=' + radioId + ']').on('change', function() {
     switch($(this).val()) {

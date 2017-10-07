@@ -89,11 +89,11 @@
         <div class="card">
           <div class="card-tabs">
             <ul class="tabs tabs-fixed-width" id="tabs-list">
-              <li class="tab blue"><a class="indigo-text text-darken-4" href="#patient">Patient</a></li>
-              <li class="tab blue disabled"><a class="indigo-text text-darken-4" href="#reaction">Reaction</a></li>
-              <li class="tab blue disabled"><a class="indigo-text text-darken-4" href="#medication">Medication</a></li>
-              <li class="tab blue disabled"><a class="indigo-text text-darken-4" href="#outcome">Outcome</a></li>
-              <li class="tab blue disabled"><a class="indigo-text text-darken-4" href="#reporter">Reporter</a></li>
+              <li id="patient-tab" class="tab blue"><a class="indigo-text text-darken-4" href="#patient">Patient</a></li>
+              <li id="reaction-tab" class="tab blue disabled"><a class="indigo-text text-darken-4" href="#reaction">Reaction</a></li>
+              <li id="medication-tab" class="tab blue disabled"><a class="indigo-text text-darken-4" href="#medication">Medication</a></li>
+              <li id="outcome-tab" class="tab blue disabled"><a class="indigo-text text-darken-4" href="#outcome">Outcome</a></li>
+              <li id="reporter-tab" class="tab blue disabled"><a class="indigo-text text-darken-4" href="#reporter">Reporter</a></li>
               <div class="indicator indigo darken-4" style="z-index:1"></div>
             </ul>
           </div>
@@ -133,7 +133,7 @@
                   </div>
                 </div>
                 <br>
-                <a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</a>
+                <a class="waves-effect waves-light btn" id="patient-submit" onclick="formSubmit(this.id)"><i class="material-icons right">send</i>Submit</a>
                 <br>
                 <br>
                 <div class="card-panel red white-text">
@@ -155,7 +155,7 @@
                 <input type="date" class="datepicker" id="date-end">
                 <br>
                 <br>
-                <a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</a>
+                <a class="waves-effect waves-light btn" id="reaction-submit" onclick="formSubmit(this.id)"><i class="material-icons right">send</i>Submit</a>
                 <br>
                 <br>
                 <div class="card-panel red white-text">
@@ -188,6 +188,13 @@
                   </div>
                 </div>
                 <div id="insert"></div>
+                <a class="waves-effect waves-light btn" id="medication-submit" onclick="formSubmit(this.id)"><i class="material-icons right">send</i>Submit</a>
+                <br>
+                <br>
+                <div class="card-panel red white-text">
+                  <h5>Important!</h5>
+                  Please note that you will not be able to edit the entered information hereafter. Kindly review all data carefully before clicking 'Submit'.
+                </div>
               </div>
             </div>
             <div id="outcome" class="row">
@@ -277,7 +284,7 @@
                   <label for="outcome-spec">Specify outcome of reaction</label>
                 </div>
                 <br>
-                <a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</a>
+                <a class="waves-effect waves-light btn" id="outcome-submit" onclick="formSubmit(this.id)"><i class="material-icons right">send</i>Submit</a>
                 <br>
                 <br>
                 <div class="card-panel red white-text">
@@ -332,7 +339,7 @@
                 <input type="date" class="datepicker" id="date-report">
                 <br>
                 <br>
-                <a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</a>
+                <a class="waves-effect waves-light btn" id="reporter-submit" onclick="formSubmit(this.id)"><i class="material-icons right">send</i>Submit</a>
                 <br>
                 <br>
                 <div class="card-panel red white-text">

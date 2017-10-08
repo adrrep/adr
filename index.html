@@ -100,36 +100,41 @@
           <div class="card-content">
             <div id="patient" class="row">
               <form class="col l10 offset-l1 s12" action="javascript:formSubmit('patient-submit')">
-                <div class="input-field">
-                  <input id="initials" type="text" class="validate" data-length="10" placeholder="Enter first letter of each word of patient's full name">
-                  <label for="initials">Patient Initials</label>
-                </div>
-                <br>
-                <div class="field-title">Gender</div>
-                <p>
-                  <input name="gender" type="radio" id="male">
-                  <label for="male">Male</label>
-                </p>
-                <p>
-                  <input name="gender" type="radio" id="female">
-                  <label for="female">Female</label>
-                </p>
+                <p><i>All fields marked with an asterisk (*) are required.</i></p>
                 <br>
                 <br>
                 <div class="input-field">
-                  <input id="age" type="text" class="validate" data-length="20" placeholder="In Years">
-                  <label for="age">Age</label>
+                  <input id="initials" type="text" data-length="10" placeholder="Enter first letter of each word of patient's full name" required maxlength="10">
+                  <label for="initials">Patient Initials *</label>
                 </div>
                 <br>
-                <div class="field-title">Weight (0-300 Kg)</div>
+                <div class="field-title">Gender *</div>
+                <fieldset id="gender">
+                  <p>
+                    <input name="gender" type="radio" id="male" required>
+                    <label for="male">Male</label>
+                  </p>
+                  <p>
+                    <input name="gender" type="radio" id="female" required>
+                    <label for="female">Female</label>
+                  </p>
+                </fieldset>
+                <br>
+                <br>
+                <div class="input-field">
+                  <input id="age" type="number" data-length="3" required min="0" max="150" placeholder="In Years">
+                  <label for="age">Age *</label>
+                </div>
+                <br>
+                <div class="field-title">Weight (0-300 Kg) *</div>
                 <div class="row range-field-wrapper">
                   <div class="col s10">
                     <p class="range-field">
-                      <input type="range" name="weightRange" id="weight" min="0" max="300" value="0" oninput="this.form.weightInput.value=this.value">
+                      <input type="range" name="weightRange" min="0" max="300" value="0" oninput="this.form.weightInput.value=this.value">
                     </p>
                   </div>
                   <div class="col s2">
-                    <input type="number" name="weightInput" min="0" max="300" value="0" oninput="this.form.weightRange.value=this.value" />
+                    <input type="number" name="weightInput" id="weight" min="0" max="300" value="0" required oninput="this.form.weightRange.value=this.value">
                   </div>
                 </div>
                 <br>

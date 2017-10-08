@@ -69,8 +69,8 @@ function formSubmit(id) {
 
 function processPatientData() {
   var flag = true;
-  var initials = document.getElementById('initials');
-  var age = document.getElementById('age');
+  var initials = document.getElementById('initials').value;
+  var age = document.getElementById('age').value;
   var genderFields = document.getElementsByName('gender');
   var gender;
   for (var i = 0; i < genderFields.length; i++) {
@@ -78,12 +78,12 @@ function processPatientData() {
           gender = genderFields[i].id;
       }
   }
-  var weight = document.getElementById('weight');
-  if (initials.value == "") {
+  var weight = document.getElementById('weight').value;
+  if (initials == "") {
     makeToast('Initials is a required field!');
     flag = false;
   }
-  if (age.value == "") {
+  if (age == "") {
     makeToast('Age is a required field!');
     flag = false;
   }
@@ -91,7 +91,7 @@ function processPatientData() {
     makeToast('Gender is a required field!');
     flag = false;
   }
-  if (weight.value <= 0) {
+  if (weight <= 0) {
     makeToast('Weight is a required field!');
     flag = false;
   }

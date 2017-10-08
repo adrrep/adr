@@ -50,8 +50,7 @@ function setupTabs() {
 function formSubmit(id) {
   switch(id) {
     case 'patient-submit':
-      processPatientData();
-      gotoNextTab('patient-tab', 'reaction-tab', 'reaction');
+      if (processPatientData()) gotoNextTab('patient-tab', 'reaction-tab', 'reaction');
       break;
     case 'reaction-submit':
       gotoNextTab('reaction-tab', 'medication-tab', 'medication');
@@ -69,8 +68,9 @@ function formSubmit(id) {
 }
 
 function processPatientData() {
-  var initials = document.getElementById('initials').value;
-  var age = document.getElementById('age').value;
+  var flag = 1;
+  var initials = document.getElementById('initials');
+  var age = document.getElementById('age');
   var genderFields = document.getElementsByName('gender');
   var gender;
   for (var i = 0; i < genderFields.length; i++) {
@@ -78,9 +78,29 @@ function processPatientData() {
           gender = genderFields[i].id;
       }
   }
-  var weight = document.getElementById('weight').value;
-  if (initials == null) Materialize.toast('Patient initials is a required field!', 4000, 'rounded');
-  if (age == null) Materialize.toast('Patient age is a required field!', 4000, 'rounded');
+  var weight = document.getElementById('weight');
+  if (initials.value == "") {
+    makeToast('Initials is a required field!');
+    flag = 0;
+  }
+  if (age.value == "") {
+    makeToast('Age is a required field!');
+    flag = 0;
+  }
+  if (gender == null) {
+    makeToast('Gender is a required field!');
+    flag = 0;
+  }
+  if (weight.value <= 0) {
+    makeToast('Weight is a required field!');
+    flag = 0;
+  }
+  if (flag == 0) return false;
+  else return true;
+}
+
+function makeToast(msg) {
+  Materialize.toast(msg, 4000, 'rounded');
 }
 
 function gotoNextTab(present, next, sel) {

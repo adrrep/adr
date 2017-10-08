@@ -53,7 +53,7 @@ function formSubmit(id) {
       if (processPatientData()) gotoNextTab('patient-tab', 'reaction-tab', 'reaction');
       break;
     case 'reaction-submit':
-      gotoNextTab('reaction-tab', 'medication-tab', 'medication');
+      if (processReactionData()) gotoNextTab('reaction-tab', 'medication-tab', 'medication');
       break;
     case 'medication-submit':
       gotoNextTab('medication-tab', 'outcome-tab', 'outcome');
@@ -96,6 +96,59 @@ function processPatientData() {
     flag = false;
   }
   return flag;
+}
+
+function processReactionData() {
+  var flag = true;
+  var chips = $('#reaction-description').material_chip('data');
+  var startDate = document.getElementById('date-start').value;
+  var endDate = document.getElementById('date-end').value;
+  if (chips.length <= 0) {
+    makeToast('Description is a required field!');
+    flag = false;
+  }
+  if (startDate == "") {
+    makeToast('Start date is a required field!');
+    flag = false;
+  }
+  if (endDate == "") {
+    makeToast('End date is a required field!');
+    flag = false;
+  }
+  startDateCorrected = new Date(changeDateFormat(startDate)).getTime();
+  endDateCorrected = new Date(changeDateFormat(endDate)).getTime();
+  todaysDate = new Date(getTodaysDate()).getTime();
+  if (startDateCorrected > todaysDate) {
+    makeToast('Start date must be before or on the date today!');
+    flag = false;
+  }
+  if (endDateCorrected > todaysDate) {
+    makeToast('End date must be before or on the date today!');
+    flag = false;
+  }
+  if (startDateCorrected > endDateCorrected) {
+    makeToast('Start date must be before end date!');
+    flag = false;
+  }
+  return flag;
+}
+
+function changeDateFormat(date) {
+  s = date.split('/');
+  if (s.length == 3) newDate = s[2] + "/" + s[1] + "/" + s[0];
+  else newDate = "1970/01/01";
+  return newDate;
+}
+
+function getTodaysDate() {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1;
+  var yyyy = today.getFullYear();
+  if (dd < 10) dd = '0' + dd;
+  if (mm < 10) mm = '0' + mm;
+  today = yyyy + '/' + mm + '/' + dd;
+  return today;
 }
 
 function makeToast(msg) {

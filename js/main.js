@@ -50,6 +50,7 @@ function setupTabs() {
 function formSubmit(id) {
   switch(id) {
     case 'patient-submit':
+      processPatientData();
       gotoNextTab('patient-tab', 'reaction-tab', 'reaction');
       break;
     case 'reaction-submit':
@@ -65,6 +66,21 @@ function formSubmit(id) {
       alert('TODO!!!');
       break;
   }
+}
+
+function processPatientData() {
+  var initials = document.getElementById('initials').value;
+  var age = document.getElementById('age').value;
+  var genderFields = document.getElementsByName('gender');
+  var gender;
+  for (var i = 0; i < genderFields.length; i++) {
+      if (genderFields[i].checked){
+          gender = genderFields[i].id;
+      }
+  }
+  var weight = document.getElementById('weight').value;
+  if (initials == null) Materialize.toast('Patient initials is a required field!', 4000, 'rounded');
+  if (age == null) Materialize.toast('Patient age is a required field!', 4000, 'rounded');
 }
 
 function gotoNextTab(present, next, sel) {

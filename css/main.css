@@ -42,6 +42,9 @@ nav .responsive-img {
 .card {
   margin: 4rem 0 4rem 0;
 }
+fieldset {
+  border: none;
+}
 .input-field label, .field-title {
   color: #000;
   font-size: 1rem !important;

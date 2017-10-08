@@ -99,7 +99,7 @@
           </div>
           <div class="card-content">
             <div id="patient" class="row">
-              <form class="col l10 offset-l1 s12" action="javascript:formSubmit('patient-submit')">
+              <form class="col l10 offset-l1 s12">
                 <p><i>All fields marked with an asterisk (*) are required.</i></p>
                 <br>
                 <br>
@@ -138,7 +138,7 @@
                   </div>
                 </div>
                 <br>
-                <button type="submit" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</button>
+                <a class="waves-effect waves-light btn" id="patient-submit" onclick="formSubmit(this.id)"><i class="material-icons right">send</i>Submit</a>
                 <br>
                 <br>
                 <div class="card-panel red white-text">
@@ -148,7 +148,7 @@
               </form>
             </div>
             <div id="reaction" class="row">
-              <form class="col l10 offset-l1 s12" action="javascript:formSubmit('reaction-submit')">
+              <form class="col l10 offset-l1 s12">
                 <div class="field-title">Describe reaction or problem in short, concise phrases. To add phrases, just enter some text and press enter.</div>
                 <div class="chips" id="reaction-description"></div>
                 <br>
@@ -160,7 +160,7 @@
                 <input type="date" class="datepicker" id="date-end">
                 <br>
                 <br>
-                <button type="submit" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</button>
+                <a class="waves-effect waves-light btn" id="reaction-submit" onclick="formSubmit(this.id)"><i class="material-icons right">send</i>Submit</a>
                 <br>
                 <br>
                 <div class="card-panel red white-text">
@@ -203,7 +203,7 @@
               </div>
             </div>
             <div id="outcome" class="row">
-              <form class="col l10 offset-l1 s12" action="javascript:formSubmit('outcome-submit')">
+              <form class="col l10 offset-l1 s12">
                 <br><br>
                 <span class="input-breakline"><br><br></span>
                 <div class="input-field">
@@ -289,7 +289,7 @@
                   <label for="outcome-spec">Specify outcome of reaction</label>
                 </div>
                 <br>
-                <button type="submit" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</button>
+                <a class="waves-effect waves-light btn" id="outcome-submit" onclick="formSubmit(this.id)"><i class="material-icons right">send</i>Submit</a>
                 <br>
                 <br>
                 <div class="card-panel red white-text">
@@ -299,7 +299,7 @@
               </form>
             </div>
             <div id="reporter" class="row">
-              <form class="col l10 offset-l1 s12" action="javascript:formSubmit('reporter-submit')">
+              <form class="col l10 offset-l1 s12">
                 <div class="input-field">
                   <input id="reporter-name" type="text" class="validate" data-length="20" placeholder="">
                   <label for="reporter-name">Name</label>
@@ -344,7 +344,7 @@
                 <input type="date" class="datepicker" id="date-report">
                 <br>
                 <br>
-                <button type="submit" class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</button>
+                <a class="waves-effect waves-light btn" id="reporter-submit" onclick="formSubmit(this.id)"><i class="material-icons right">send</i>Submit</a>
                 <br>
                 <br>
                 <div class="card-panel red white-text">

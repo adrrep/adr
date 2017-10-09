@@ -13,4 +13,5 @@ var placeholderTest = Modernizr.placeholder;
 var sessionStorageTest = Modernizr.sessionstorage;
 //var totalTest = dataUriTest && formValidationTest && hiddenTest && inputTest && inputTypesTest && mediaQueriesTest && placeholderTest && sessionStorageTest;
 var totalTest = formValidationTest && hiddenTest && inputTest && inputTypesTest && mediaQueriesTest && placeholderTest && sessionStorageTest;
-alert(totalTest);
+if (totalTest) document.getElementById('warning').style.display = 'none';
+else document.getElementById('main-div').style.display = 'none';

@@ -269,7 +269,7 @@ function medicationAdd() {
     formReset();
     $('#medication-add').modal('close');
     Materialize.toast('Medication added!', 4000, 'rounded');
-    var divToAdd = "<div class='card blue lighten-4'><div class='card-content'><span class='card-title'>"+ name +"</span><p>"+ manufacturer + "</p></div><div class='card-action'><button class='waves-effect waves-light btn'><i class='material-icons right'>mode_edit</i>Edit</button><button class='waves-effect waves-light btn'><i class='material-icons right'>delete</i>Delete</button></div></div>";
+    var divToAdd = "<div class='card blue lighten-4'><div class='card-content'><span class='card-title'>"+ name +"</span><p>"+ manufacturer + "</p></div></div>";
     $('#insert').before(divToAdd);
     if (medicationCount == 4) {
       makeToast("No more medications can be added!");

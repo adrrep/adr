@@ -207,7 +207,15 @@ function medicationAdd() {
     flag = false;
   }
   var route = $("input[type='radio'][name='route']:checked").val();
+  if (route == null) {
+    makeToast('Route is a required field!');
+    flag = false;
+  }
   var frequency = $('#freq').val();
+  if (frequency == null) {
+    makeToast('Frequency is a required field!');
+    flag = false;
+  }
   var therapyStart = $('#therapy-start').pickadate().pickadate('picker').get();
   var therapyEnd = $('#therapy-end').pickadate().pickadate('picker').get();
   var duration = $('#duration').val();

@@ -28,7 +28,7 @@ $(document).ready(function(){
   });
   $('#medication-add').modal();
   enableSpecFieldOnRadio('stop','#stop-reduced');
-  enableSpecFieldOnRadio('reintro','#reintro-reduced');
+  //enableSpecFieldOnRadio('reintro','#reintro-reduced');
   setupTabs();
 });
 
@@ -198,9 +198,9 @@ function medicationAdd() {
   var stop = $("input[type='radio'][name='stop']:checked").val();
   var stopReduced = 0;
   if (stop == "yes") stopReduced = $('#stop-reduced').val();
-  var reintro = $("input[type='radio'][name='reintro']:checked").val();
-  var reintroReduced = 0;
-  if (reintro == "yes")  reintroReduced = $('reintro-reduced').val();
+  //var reintro = $("input[type='radio'][name='reintro']:checked").val();
+  //var reintroReduced = 0;
+  //if (reintro == "yes")  reintroReduced = $('reintro-reduced').val();
   formReset();
   $('#medication-add').modal('close');
   Materialize.toast('Medication added!', 4000, 'rounded');

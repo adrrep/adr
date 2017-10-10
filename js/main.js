@@ -148,6 +148,32 @@ function processOutcomeData() {
   var concomitant = $('#concomitant').val();
   var test = $('#test').val();
   var history = $('#history').val();
+  var serious = $("input[type='radio'][name='serious']:checked").val();
+  if (serious == null) {
+    makeToast('Seriousness of reaction is a required field!');
+    flag = false;
+  }
+  var seriousSpec;
+  if (serious == 'other') {
+    seriousSpec = $('#serious-spec').val();
+    if (seriousSpec == "") {
+      makeToast('Specific other response is a required field!');
+      flag = false;
+    }
+  }
+  var outcome = $("input[type='radio'][name='outcome']:checked").val();
+  if (outcome == null) {
+    makeToast('Outcome of reaction is a required field!');
+    flag = false;
+  }
+  var outcomeSpec;
+  if (outcome == 'other') {
+    outcomeSpec = $('#outcome-spec').val();
+    if (outcomeSpec == "") {
+      makeToast('Specific other response is a required field!');
+      flag = false;
+    }
+  }
   return flag;
 }
 

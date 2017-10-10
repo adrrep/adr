@@ -249,8 +249,18 @@ function medicationAdd() {
     flag = false;
   }
   var stop = $("input[type='radio'][name='stop']:checked").val();
-  var stopReduced = 0;
-  if (stop == "yes") stopReduced = $('#stop-reduced').val();
+  if (stop = null) {
+    makeToast('Reaction abated after drug stopped or dose reduced is a required field!');
+    flag = false;
+  }
+  var stopReduced;
+  if (stop == "yes") {
+    stopReduced = $('#stop-reduced').val();
+    if (stopReduced != "" && stopReduced > dose) {
+      makeToast('Reduced dose must be less than original dose!');
+      flag = false;
+    }
+  }
   //var reintro = $("input[type='radio'][name='reintro']:checked").val();
   //var reintroReduced = 0;
   //if (reintro == "yes")  reintroReduced = $('reintro-reduced').val();

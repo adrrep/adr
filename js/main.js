@@ -257,7 +257,7 @@ function medicationAdd() {
     flag = false;
   }
   var stop = $("input[type='radio'][name='stop']:checked").val();
-  if (stop = null) {
+  if (stop == null) {
     makeToast('Reaction abated after drug stopped or dose reduced is a required field!');
     flag = false;
   }

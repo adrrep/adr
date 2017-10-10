@@ -59,7 +59,7 @@ function formSubmit(id) {
       if (processMedicationData()) gotoNextTab('medication-tab', 'outcome-tab', 'outcome');
       break;
     case 'outcome-submit':
-      gotoNextTab('outcome-tab', 'reporter-tab', 'reporter');
+      if (processOutcomeData()) gotoNextTab('outcome-tab', 'reporter-tab', 'reporter');
       break;
     case 'reporter-submit':
       alert('TODO!!!');
@@ -139,6 +139,14 @@ function processMedicationData() {
     makeToast('Atleast 1 medication must be added!');
     return false;
   }
+}
+
+function processOutcomeData() {
+  var flag = true;
+  var concomitant = $('#concomitant').val();
+  var test = $('#test').val();
+  var history = $('#history').val();
+  return flag;
 }
 
 function changeDateFormat(date) {

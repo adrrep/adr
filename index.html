@@ -201,6 +201,7 @@
                     <button href="#medication-add" data-target="medication-add" class="waves-effect waves-light btn"><i class="material-icons right">add</i>Add</button>
                   </div>
                 </div>
+                <!--
                 <div class="card blue lighten-4">
                   <div class="card-content">
                     <span class="card-title">Sample Medication Name</span>
@@ -211,6 +212,7 @@
                     <button class="waves-effect waves-light btn disabled"><i class="material-icons right">delete</i>Delete</button>
                   </div>
                 </div>
+                -->
                 <div id="insert"></div>
                 <a class="waves-effect waves-light btn" onclick="formSubmit('medication-submit')"><i class="material-icons right">send</i>Submit</a>
                 <br>
@@ -383,20 +385,21 @@
           <form class="col l10 offset-l1 s12" id="medication-form">
             <h4>Add Medication</h4>
             <p>Enter the details below and click 'Add'</p>
+            <p><i>All fields marked with an asterisk (*) are required.</i></p>
             <br>
             <div class="input-field">
-              <input id="medication-name" placeholder="Brand and/or generic name" type="text" class="validate" data-length="20">
-              <label for="medication-name">Medication Name</label>
+              <input id="medication-name" placeholder="Brand and/or generic name" type="text" data-length="20" maxlength="20">
+              <label for="medication-name">Medication Name *</label>
             </div>
             <br>
             <div class="input-field">
-              <input id="manufacturer" placeholder="If known" type="text" class="validate" data-length="20">
-              <label for="manufacturer">Manufacturer</label>
+              <input id="manufacturer" placeholder="If known" type="text" data-length="20" maxlength="20">
+              <label for="manufacturer">Manufacturer *</label>
             </div>
             <br>
             <div class="input-field">
-              <input id="batch" placeholder="If known" type="text" class="validate" data-length="10">
-              <label for="batch">Batch/Lot Number</label>
+              <input id="batch" placeholder="If known" type="text" data-length="10" maxlength="10">
+              <label for="batch">Batch/Lot Number *</label>
             </div>
             <br>
             <div class="field-title">Expiry Date</div>
@@ -404,11 +407,11 @@
             <br>
             <br>
             <div class="input-field">
-              <input id="dose" placeholder="In mg" type="number" class="validate" data-length="5">
-              <label for="dose">Dose</label>
+              <input id="dose" placeholder="In mg" type="number" data-length="5" maxlength="5">
+              <label for="dose">Dose *</label>
             </div>
             <br>
-            <div class="field-title">Route Used</div>
+            <div class="field-title">Route Used *</div>
             <p>
               <input name="route" type="radio" id="po" value="po">
               <label for="po">Per Oral</label>
@@ -435,29 +438,29 @@
             </p>
             <br>
             <div class="input-field">
-              <input id="freq" type="text" class="validate" data-length="20" placeholder="Number of times dose administered in one day">
-              <label for="freq">Frequency</label>
+              <input id="freq" type="text" data-length="20" maxlength="20" placeholder="Number of times dose administered in one day">
+              <label for="freq">Frequency *</label>
             </div>
             <br>
-            <div class="field-title">Therapy start date</div>
+            <div class="field-title">Therapy start date *</div>
             <input type="date" class="datepicker" id="therapy-start" placeholder="If unknown, enter duration below">
             <br>
             <br>
-            <div class="field-title">Therapy end date</div>
+            <div class="field-title">Therapy end date *</div>
             <input type="date" class="datepicker" id="therapy-end" placeholder="If unknown, enter duration below">
             <br>
             <br>
             <div class="input-field">
-              <input id="duration" type="text" class="validate" data-length="20" placeholder="In days">
+              <input id="duration" type="text" data-length="20" placeholder="In days" disabled>
               <label for="duration">Duration</label>
             </div>
             <br>
             <div class="input-field">
-              <input id="reason" type="text" class="validate" data-length="20" placeholder="Reason for use/prescribed for">
-              <label for="reason">Reason for use</label>
+              <input id="reason" type="text" data-length="20" maxlength="20" placeholder="Reason for use/prescribed for">
+              <label for="reason">Reason for use *</label>
             </div>
             <br>
-            <div class="field-title">Reaction abated after drug stopped or dose reduced</div>
+            <div class="field-title">Reaction abated after drug stopped or dose reduced *</div>
             <p>
               <input name="stop" type="radio" id="stop-yes" value="yes">
               <label for="stop-yes">Yes</label>
@@ -476,7 +479,7 @@
             </p>
             <br>
             <div class="input-field">
-              <input disabled id="stop-reduced" type="number" class="validate" data-length="5" placeholder="">
+              <input disabled id="stop-reduced" type="number" data-length="5" maxlength="5" placeholder="">
               <label for="stop-reduced">Reduced dose</label>
             </div>
             <br>
@@ -499,11 +502,17 @@
             </p>
             <br>
             <div class="input-field">
-              <input disabled id="reintro-reduced" type="number" class="validate" data-length="5" placeholder="" disabled>
+              <input disabled id="reintro-reduced" type="number" data-length="5" placeholder="" disabled>
               <label for="reintro-reduced">Reduced dose</label>
             </div>
             <br>
-            <button class="modal-action modal-close waves-effect waves-light btn" type="button" onclick="medicationAdd()"><i class="material-icons right">add</i>Add</button>
+            <button class="waves-effect waves-light btn" type="button" onclick="medicationAdd()"><i class="material-icons right">add</i>Add</button>
+            <br>
+            <br>
+            <div class="card-panel red white-text">
+              <h5>Important!</h5>
+              Please note that you will not be able to edit the entered information hereafter. Kindly review all data carefully before clicking 'Add'.
+            </div>
           </form>
         </div>
       </div>

@@ -56,7 +56,7 @@ function formSubmit(id) {
       if (processReactionData()) gotoNextTab('reaction-tab', 'medication-tab', 'medication');
       break;
     case 'medication-submit':
-      gotoNextTab('medication-tab', 'outcome-tab', 'outcome');
+      if (processMedicationData()) gotoNextTab('medication-tab', 'outcome-tab', 'outcome');
       break;
     case 'outcome-submit':
       gotoNextTab('outcome-tab', 'reporter-tab', 'reporter');
@@ -133,6 +133,14 @@ function processReactionData() {
   return flag;
 }
 
+function processMedicationData() {
+  if (medicationCount > 0) return true;
+  else {
+    makeToast('Atleast 1 medication must be added!');
+    return false;
+  }
+}
+
 function changeDateFormat(date) {
   s = date.split('/');
   if (s.length == 3) newDate = s[2] + "/" + s[1] + "/" + s[0];
@@ -184,28 +192,98 @@ function enableSpecFieldOnRadio(radioId, fieldSelector) {
 
 var medicationCount = 0;
 function medicationAdd() {
+  var flag = true;
   var name = $('#medication-name').val();
+  if (name == "") {
+    makeToast('Medication name is a required field!');
+    flag = false;
+  }
   var manufacturer = $('#manufacturer').val();
+  if (manufacturer == "") {
+    makeToast('Manufacturer is a required field!');
+    flag = false;
+  }
   var batch = $('#batch').val();
+  if (batch == "") {
+    makeToast('Batch/lot number is a required field!');
+    flag = false;
+  }
   var expiry = $('#expiry').pickadate().pickadate('picker').get();
   var dose = $('#dose').val();
+  if (dose == "") {
+    makeToast('Dose is a required field!');
+    flag = false;
+  }
   var route = $("input[type='radio'][name='route']:checked").val();
+  if (route == null) {
+    makeToast('Route is a required field!');
+    flag = false;
+  }
   var frequency = $('#freq').val();
+  if (frequency == null) {
+    makeToast('Frequency is a required field!');
+    flag = false;
+  }
   var therapyStart = $('#therapy-start').pickadate().pickadate('picker').get();
   var therapyEnd = $('#therapy-end').pickadate().pickadate('picker').get();
-  var duration = $('#duration').val();
+  var therapyStartCorrected = new Date(changeDateFormat(therapyStart)).getTime();
+  var therapyEndCorrected = new Date(changeDateFormat(therapyEnd)).getTime();
+  var todaysDate = new Date(getTodaysDate()).getTime();
+  if (therapyStart == "") {
+    makeToast('Therapy start date is a required field!');
+    flag = false;
+  }
+  if (therapyEnd == "") {
+    makeToast('Therapy end date is a required field!');
+    flag = false;
+  }
+  if (therapyStartCorrected > todaysDate) {
+    makeToast('Therapy start date must be before or on the date today!');
+    flag = false;
+  }
+  if (therapyEndCorrected > todaysDate) {
+    makeToast('Therapy end date must be before or on the date today!');
+    flag = false;
+  }
+  if (therapyStartCorrected > therapyEndCorrected) {
+    makeToast('Therapy start date must be before therapy end date!');
+    flag = false;
+  }
+  var duration;
+  if (flag) duration = (therapyEndCorrected - therapyStartCorrected) / (1000 * 24 * 60 * 60);
   var reason = $('#reason').val();
+  if (reason == "") {
+    makeToast('Reason for use is a required field!');
+    flag = false;
+  }
   var stop = $("input[type='radio'][name='stop']:checked").val();
-  var stopReduced = 0;
-  if (stop == "yes") stopReduced = $('#stop-reduced').val();
+  if (stop == null) {
+    makeToast('Reaction abated after drug stopped or dose reduced is a required field!');
+    flag = false;
+  }
+  var stopReduced;
+  if (stop == "yes") {
+    stopReduced = $('#stop-reduced').val();
+    if (stopReduced != "" && stopReduced > dose) {
+      makeToast('Reduced dose must be less than original dose!');
+      flag = false;
+    }
+  }
   //var reintro = $("input[type='radio'][name='reintro']:checked").val();
   //var reintroReduced = 0;
   //if (reintro == "yes")  reintroReduced = $('reintro-reduced').val();
-  formReset();
-  $('#medication-add').modal('close');
-  Materialize.toast('Medication added!', 4000, 'rounded');
-  var divToAdd = "<div class='card blue lighten-4'><div class='card-content'><span class='card-title'>"+ name +"</span><p>"+ manufacturer + "<br>" + expiry + "</p></div><div class='card-action'><button class='waves-effect waves-light btn'><i class='material-icons right'>mode_edit</i>Edit</button><button class='waves-effect waves-light btn'><i class='material-icons right'>delete</i>Delete</button></div></div>";
-  $('#insert').before(divToAdd);
+  if (flag) {
+    medicationCount = medicationCount + 1;
+    formReset();
+    $('#medication-add').modal('close');
+    Materialize.toast('Medication added!', 4000, 'rounded');
+    var divToAdd = "<div class='card blue lighten-4'><div class='card-content'><span class='card-title'>"+ name +"</span><p>"+ manufacturer + "</p></div></div>";
+    $('#insert').before(divToAdd);
+    if (medicationCount == 4) {
+      makeToast("No more medications can be added!");
+      document.findElementById('medication-add').disabled = true;
+    }
+  }
 }
 
 function formReset(){

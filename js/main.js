@@ -184,11 +184,28 @@ function enableSpecFieldOnRadio(radioId, fieldSelector) {
 
 var medicationCount = 0;
 function medicationAdd() {
+  var flag = true;
   var name = $('#medication-name').val();
+  if (name == "") {
+    makeToast('Medication name is a required field!');
+    flag = false;
+  }
   var manufacturer = $('#manufacturer').val();
+  if (manufacturer == "") {
+    makeToast('Manufacturer is a required field!');
+    flag = false;
+  }
   var batch = $('#batch').val();
+  if (batch == "") {
+    makeToast('Batch/lot number is a required field!');
+    flag = false;
+  }
   var expiry = $('#expiry').pickadate().pickadate('picker').get();
   var dose = $('#dose').val();
+  if (dose == "") {
+    makeToast('Dose is a required field!');
+    flag = false;
+  }
   var route = $("input[type='radio'][name='route']:checked").val();
   var frequency = $('#freq').val();
   var therapyStart = $('#therapy-start').pickadate().pickadate('picker').get();

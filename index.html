@@ -323,48 +323,51 @@
             </div>
             <div id="reporter" class="row">
               <form class="col l10 offset-l1 s12">
+                <p><i>All fields marked with an asterisk (*) are required.</i></p>
+                <br>
+                <br>
                 <div class="input-field">
-                  <input id="reporter-name" type="text" class="validate" data-length="20" placeholder="">
-                  <label for="reporter-name">Name</label>
+                  <input id="reporter-name" type="text" data-length="20" maxlength="20" placeholder="">
+                  <label for="reporter-name">Name *</label>
                 </div>
                 <br>
                 <div class="input-field">
-                  <input id="address1" type="text" class="validate" data-length="20" placeholder="">
-                  <label for="address1">Address Line 1</label>
+                  <input id="address1" type="text" data-length="20" maxlength="20" placeholder="">
+                  <label for="address1">Address Line 1 *</label>
                 </div>
                 <br>
                 <div class="input-field">
-                  <input id="address2" type="text" class="validate" data-length="20" placeholder="">
+                  <input id="address2" type="text" data-length="20" maxlength="20" placeholder="">
                   <label for="address2">Address Line 2</label>
                 </div>
                 <br>
                 <div class="input-field">
-                  <input id="pincode" type="number" min="100000" max="999999" class="validate" placeholder="">
-                  <label for="pincode">Pincode</label>
+                  <input id="pincode" type="number" min="100000" max="999999" placeholder="">
+                  <label for="pincode">Pincode *</label>
                 </div>
                 <br>
                 <div class="input-field">
-                  <input id="email" type="email" class="validate" data-length="20" placeholder="">
-                  <label for="email">E-mail</label>
+                  <input id="email" type="email" data-length="20" maxlength="20" placeholder="">
+                  <label for="email">E-mail *</label>
                 </div>
                 <br>
                 <div class="input-field">
-                  <input id="phone" type="number" class="validate" data-length="15" placeholder="">
-                  <label for="phone">Mobile/Telephone number with STD code</label>
+                  <input id="phone" type="tel" data-length="15" maxlength="15" placeholder="">
+                  <label for="phone">Mobile/Telephone number with STD code *</label>
                 </div>
                 <br>
                 <div class="input-field">
-                  <input id="speciality" type="text" class="validate" data-length="20" placeholder="">
+                  <input id="speciality" type="text" data-length="20" maxlength="20" placeholder="">
                   <label for="speciality">Speciality</label>
                 </div>
                 <br>
                 <div class="input-field">
-                  <input id="occupation" type="text" class="validate" data-length="20" placeholder="">
-                  <label for="occupation">Occupation</label>
+                  <input id="occupation" type="text" data-length="20" maxlength="20" placeholder="">
+                  <label for="occupation">Occupation *</label>
                 </div>
                 <br>
                 <div class="field-title">Date of this report</div>
-                <input type="date" class="datepicker" id="date-report">
+                <input type="date" class="datepicker" id="date-report" disabled>
                 <br>
                 <br>
                 <a class="waves-effect waves-light btn" id="reporter-submit" onclick="formSubmit(this.id)"><i class="material-icons right">send</i>Submit</a>

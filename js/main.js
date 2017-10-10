@@ -64,7 +64,7 @@ function formSubmit(id) {
       if (processOutcomeData()) gotoNextTab('outcome-tab', 'reporter-tab', 'reporter');
       break;
     case 'reporter-submit':
-      alert('TODO!!!');
+      if (processReporterData()) alert('TODO!!!');
       break;
   }
 }
@@ -174,6 +174,59 @@ function processOutcomeData() {
       flag = false;
     }
   }
+  return flag;
+}
+
+function processReporterData() {
+  var flag = true;
+  var reporterName = $('#reporter-name').val();
+  if (reporterName == "") {
+    makeToast('Repoter name is a required field!');
+    flag = false;
+  }
+  var address1 = $('#address1').val();
+  if (address1 == "") {
+    makeToast('Address line 1 is a required field!');
+    flag = false;
+  }
+  var address2 = $('#address2').val();
+  var pincode = $('#pincode').val();
+  var pincodeRegex = /^[0-9]{6,6}$/;
+  if (pincode == "") {
+    makeToast('Pincode is a required field!');
+    flag = false;
+  }
+  else if (!pincodeRegex.test(pincode)) {
+    makeToast('Incorrect pincode');
+    flag = false;
+  }
+  var email = $('#email').val();
+  var emailRegex = /^([a-zA-Z0-9+_\-\.])+@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,6})$/;
+  if (email == "") {
+    makeToast('Email is a required field!');
+    flag = false;
+  }
+  else if (!emailRegex.test(email)) {
+    makeToast('Invalid email');
+    flag = false;
+  }
+  var phone = $('#phone').val();
+  var phoneRegex = /^[0-9-+]{8,15}$/;
+  if (phone == "") {
+    makeToast('Telephone number is a required field!');
+    flag = false;
+  }
+  else if (!phoneRegex.test(phone)) {
+    makeToast('Invalid telephone number');
+    flag = false;
+  }
+  var speciality = $('#speciality').val();
+  var occupation = $('#occupation').val();
+  if (occupation == "") {
+    makeToast('Occupation is a required field!');
+    flag = false;
+  }
+  var dateReport = changeDateFormat(getTodaysDate());
   return flag;
 }
 

@@ -56,7 +56,7 @@ function formSubmit(id) {
       if (processReactionData()) gotoNextTab('reaction-tab', 'medication-tab', 'medication');
       break;
     case 'medication-submit':
-      gotoNextTab('medication-tab', 'outcome-tab', 'outcome');
+      if (processMedicationData()) gotoNextTab('medication-tab', 'outcome-tab', 'outcome');
       break;
     case 'outcome-submit':
       gotoNextTab('outcome-tab', 'reporter-tab', 'reporter');
@@ -131,6 +131,14 @@ function processReactionData() {
     flag = false;
   }
   return flag;
+}
+
+function processMedicationData() {
+  if (medicationCount > 0) return true;
+  else {
+    makeToast('Atleast 1 medication must be added!');
+    return false;
+  }
 }
 
 function changeDateFormat(date) {

@@ -27,8 +27,10 @@ $(document).ready(function(){
     selectYears: 7
   });
   $('#medication-add').modal();
-  enableSpecFieldOnRadio('stop','#stop-reduced');
+  enableSpecFieldOnRadio('stop','#stop-reduced','yes');
   //enableSpecFieldOnRadio('reintro','#reintro-reduced');
+  enableSpecFieldOnRadio('serious','#serious-spec','other');
+  enableSpecFieldOnRadio('outcome','#outcome-spec','other');
   setupTabs();
 });
 
@@ -180,15 +182,13 @@ function gotoNextTab(present, next, sel) {
   $('ul.tabs').tabs('select_tab', sel);
 }
 
-function enableSpecFieldOnRadio(radioId, fieldSelector) {
+function enableSpecFieldOnRadio(radioId, fieldSelector, caseId) {
   $('input[type=radio][name=' + radioId + ']').on('change', function() {
     switch($(this).val()) {
-      case 'yes':
+      case caseId:
         $(fieldSelector).prop('disabled', false);
         break;
-      case 'no':
-      case 'unknown':
-      case 'na':
+      default:
         $(fieldSelector).val("");
         $(fieldSelector).removeClass('valid');
         $(fieldSelector).removeClass('invalid');

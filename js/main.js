@@ -244,6 +244,10 @@ function medicationAdd() {
   var duration;
   if (flag) duration = (therapyEndCorrected - therapyStartCorrected) / (1000 * 24 * 60 * 60);
   var reason = $('#reason').val();
+  if (reason == "") {
+    makeToast('Reason for use is a required field!');
+    flag = false;
+  }
   var stop = $("input[type='radio'][name='stop']:checked").val();
   var stopReduced = 0;
   if (stop == "yes") stopReduced = $('#stop-reduced').val();

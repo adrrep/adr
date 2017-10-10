@@ -27,8 +27,10 @@ $(document).ready(function(){
     selectYears: 7
   });
   $('#medication-add').modal();
-  enableSpecFieldOnRadio('stop','#stop-reduced');
+  enableSpecFieldOnRadio('stop','#stop-reduced','yes');
   //enableSpecFieldOnRadio('reintro','#reintro-reduced');
+  enableSpecFieldOnRadio('serious','#serious-spec','other');
+  enableSpecFieldOnRadio('outcome','#outcome-spec','other');
   setupTabs();
 });
 
@@ -59,7 +61,7 @@ function formSubmit(id) {
       if (processMedicationData()) gotoNextTab('medication-tab', 'outcome-tab', 'outcome');
       break;
     case 'outcome-submit':
-      gotoNextTab('outcome-tab', 'reporter-tab', 'reporter');
+      if (processOutcomeData()) gotoNextTab('outcome-tab', 'reporter-tab', 'reporter');
       break;
     case 'reporter-submit':
       alert('TODO!!!');
@@ -141,6 +143,40 @@ function processMedicationData() {
   }
 }
 
+function processOutcomeData() {
+  var flag = true;
+  var concomitant = $('#concomitant').val();
+  var test = $('#test').val();
+  var history = $('#history').val();
+  var serious = $("input[type='radio'][name='serious']:checked").val();
+  if (serious == null) {
+    makeToast('Seriousness of reaction is a required field!');
+    flag = false;
+  }
+  var seriousSpec;
+  if (serious == 'other') {
+    seriousSpec = $('#serious-spec').val();
+    if (seriousSpec == "") {
+      makeToast('Specific other response is a required field!');
+      flag = false;
+    }
+  }
+  var outcome = $("input[type='radio'][name='outcome']:checked").val();
+  if (outcome == null) {
+    makeToast('Outcome of reaction is a required field!');
+    flag = false;
+  }
+  var outcomeSpec;
+  if (outcome == 'other') {
+    outcomeSpec = $('#outcome-spec').val();
+    if (outcomeSpec == "") {
+      makeToast('Specific other response is a required field!');
+      flag = false;
+    }
+  }
+  return flag;
+}
+
 function changeDateFormat(date) {
   s = date.split('/');
   if (s.length == 3) newDate = s[2] + "/" + s[1] + "/" + s[0];
@@ -172,15 +208,13 @@ function gotoNextTab(present, next, sel) {
   $('ul.tabs').tabs('select_tab', sel);
 }
 
-function enableSpecFieldOnRadio(radioId, fieldSelector) {
+function enableSpecFieldOnRadio(radioId, fieldSelector, caseId) {
   $('input[type=radio][name=' + radioId + ']').on('change', function() {
     switch($(this).val()) {
-      case 'yes':
+      case caseId:
         $(fieldSelector).prop('disabled', false);
         break;
-      case 'no':
-      case 'unknown':
-      case 'na':
+      default:
         $(fieldSelector).val("");
         $(fieldSelector).removeClass('valid');
         $(fieldSelector).removeClass('invalid');

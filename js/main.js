@@ -218,7 +218,31 @@ function medicationAdd() {
   }
   var therapyStart = $('#therapy-start').pickadate().pickadate('picker').get();
   var therapyEnd = $('#therapy-end').pickadate().pickadate('picker').get();
-  var duration = $('#duration').val();
+  var therapyStartCorrected = new Date(changeDateFormat(therapyStart)).getTime();
+  var therapyEndCorrected = new Date(changeDateFormat(therapyEnd)).getTime();
+  var todaysDate = new Date(getTodaysDate()).getTime();
+  if (therapyStart == "") {
+    makeToast('Therapy start date is a required field!');
+    flag = false;
+  }
+  if (therapyEnd == "") {
+    makeToast('Therapy end date is a required field!');
+    flag = false;
+  }
+  if (therapyStartCorrected > todaysDate) {
+    makeToast('Therapy start date must be before or on the date today!');
+    flag = false;
+  }
+  if (therapyEndCorrected > todaysDate) {
+    makeToast('Therapy end date must be before or on the date today!');
+    flag = false;
+  }
+  if (therapyStartCorrected > therapyEndCorrected) {
+    makeToast('Therapy start date must be before therapy end date!');
+    flag = false;
+  }
+  var duration;
+  if (flag) duration = (therapyEndCorrected - therapyStartCorrected) / (1000 * 24 * 60 * 60);
   var reason = $('#reason').val();
   var stop = $("input[type='radio'][name='stop']:checked").val();
   var stopReduced = 0;

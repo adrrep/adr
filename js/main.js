@@ -101,8 +101,8 @@ function processPatientData() {
 function processReactionData() {
   var flag = true;
   var chips = $('#reaction-description').material_chip('data');
-  var startDate = document.getElementById('date-start').value;
-  var endDate = document.getElementById('date-end').value;
+  var startDate = $('#date-start').pickadate().pickadate('picker').get();
+  var endDate = $('#date-end').pickadate().pickadate('picker').get();
   if (chips.length <= 0) {
     makeToast('Description is a required field!');
     flag = false;

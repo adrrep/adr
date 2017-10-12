@@ -447,6 +447,16 @@ function setupRender() {
   doc.setFontSize(10);
 }
 
+function renderText(data, xCord, yCord, charLimit, lineLimit, lineSpacing, fontSize = 10) {
+  var chunks = new Array();
+  chunks = chunkSubstr(data, charLimit);
+  if (fontSize != 10) doc.setFontSize(fontSize);
+  for (var i = 0; i < lineLimit; i++) {
+    doc.text(chunks[i], xCord, yCord + (i * lineSpacing));
+  }
+  if (fontSize != 10) doc.setFontSize(10);
+}
+
 function renderImage(img, format, xCord, yCord, xSize, ySize) {
   doc.addImage(img, format, xCord, yCord, xSize, ySize);
 }

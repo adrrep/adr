@@ -429,3 +429,47 @@ function formReset(){
   });
   $('#medication-add').scrollTop(0);
 }
+
+function chunkSubstr(str, size) {
+  var numChunks = Math.ceil(str.length / size);
+  var chunks = new Array(numChunks);
+  for(var i = 0, o = 0; i < numChunks; ++i, o += size) {
+    chunks[i] = str.substr(o, size);
+  }
+  return chunks;
+}
+
+var doc;
+function setupRender() {
+  doc = new jsPDF('p', 'mm', 'a4');
+  renderImage(form, 'JPEG', 0, 0, 210, 297);
+  doc.setFont("courier");
+  doc.setFontSize(10);
+}
+
+function renderText(data, xCord, yCord, charLimit, lineLimit, lineSpacing, fontSize = 10) {
+  var chunks = new Array();
+  chunks = chunkSubstr(data, charLimit);
+  if (fontSize != 10) doc.setFontSize(fontSize);
+  for (var i = 0; i < lineLimit; i++) {
+    doc.text(chunks[i], xCord, yCord + (i * lineSpacing));
+  }
+  if (fontSize != 10) doc.setFontSize(10);
+}
+
+function renderImage(img, format, xCord, yCord, xSize, ySize) {
+  doc.addImage(img, format, xCord, yCord, xSize, ySize);
+}
+
+function renderLine(xStart, yStart, xEnd, yEnd) {
+  doc.setDrawColor(255);
+  doc.line(xStart, yStart, xEnd, yEnd);
+}
+
+function renderBox(xCord, yCord) {
+  doc.rect(xCord, yCord, 2, 2, 'F');
+}
+
+function render() {
+  doc.save('final.pdf');
+}

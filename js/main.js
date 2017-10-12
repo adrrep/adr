@@ -436,6 +436,100 @@ function medicationAdd() {
   //if (reintro == "yes")  reintroReduced = $('reintro-reduced').val();
   if (flag) {
     medicationCount = medicationCount + 1;
+    switch (medicationCount) {
+      case 1: renderText(name, 17, 181, 9, 2, 3);
+              renderText(manufacturer, 39, 181, 6, 2, 3);
+              renderText(batch, 54, 181, 6, 2, 3);
+              if (expiry) renderText(expiry, 69, 181, 6, 2, 3);
+              renderText(dose, 85, 181, 5, 1, 0);
+              renderText('mg', 88, 184, 2, 1, 0);
+              renderText(route, 97.25, 181, 5, 2, 3);
+              renderText(frequency, 109.5, 181, 7, 2, 3);
+              renderText(therapyStart, 129, 181, 6, 2, 3);
+              renderText(therapyEnd, 149, 181, 6, 2, 3);
+              renderText(reason, 167.5, 181, 15, 2, 3);
+              switch (stop) {
+                case 'yes': renderImage(tick, 'PNG', 31, 219.25, 4, 4);
+                            if (stopReduced != "") renderText(stopReduced + ' mg', 91, 222.25, 8, 1, 0);
+                            break;
+                case 'no': renderImage(tick, 'PNG', 46, 219.25, 4, 4);
+                           break;
+                case 'unknown': renderImage(tick, 'PNG', 62, 219.25, 4, 4);
+                                break;
+                case 'na': renderImage(tick, 'PNG', 77, 219.25, 4, 4);
+                           break;
+              }
+              break;
+      case 2: renderText(name, 17, 190, 9, 2, 3);
+              renderText(manufacturer, 39, 190, 6, 2, 3);
+              renderText(batch, 54, 190, 6, 2, 3);
+              if (expiry) renderText(expiry, 69, 190, 6, 2, 3);
+              renderText(dose, 85, 190, 5, 1, 0);
+              renderText('mg', 88, 193, 2, 1, 0);
+              renderText(route, 97.25, 190, 5, 2, 3);
+              renderText(frequency, 109.5, 190, 7, 2, 3);
+              renderText(therapyStart, 129, 190, 6, 2, 3);
+              renderText(therapyEnd, 149, 190, 6, 2, 3);
+              renderText(reason, 167.5, 190, 15, 2, 3);
+              switch (stop) {
+                case 'yes': renderImage(tick, 'PNG', 31, 223.25, 4, 4);
+                            if (stopReduced != "") renderText(stopReduced + ' mg', 91, 226.25, 8, 1, 0);
+                            break;
+                case 'no': renderImage(tick, 'PNG', 46, 223.25, 4, 4);
+                           break;
+                case 'unknown': renderImage(tick, 'PNG', 62, 223.25, 4, 4);
+                                break;
+                case 'na': renderImage(tick, 'PNG', 77, 223.25, 4, 4);
+                           break;
+              }
+              break;
+      case 3: renderText(name, 17, 198.5, 9, 2, 3);
+              renderText(manufacturer, 39, 198.5, 6, 2, 3);
+              renderText(batch, 54, 198.5, 6, 2, 3);
+              if (expiry) renderText(expiry, 69, 198.5, 6, 2, 3);
+              renderText(dose, 85, 198.5, 5, 1, 0);
+              renderText('mg', 88, 201.5, 2, 1, 0);
+              renderText(route, 97.25, 198.5, 5, 2, 3);
+              renderText(frequency, 109.5, 198.5, 7, 2, 3);
+              renderText(therapyStart, 129, 198.5, 6, 2, 3);
+              renderText(therapyEnd, 149, 198.5, 6, 2, 3);
+              renderText(reason, 167.5, 198.5, 15, 2, 3);
+              switch (stop) {
+                case 'yes': renderImage(tick, 'PNG', 31, 227.5, 4, 4);
+                            if (stopReduced != "") renderText(stopReduced + ' mg', 91, 230.5, 8, 1, 0);
+                            break;
+                case 'no': renderImage(tick, 'PNG', 46, 227.5, 4, 4);
+                           break;
+                case 'unknown': renderImage(tick, 'PNG', 62, 227.5, 4, 4);
+                                break;
+                case 'na': renderImage(tick, 'PNG', 77, 227.5, 4, 4);
+                           break;
+              }
+              break;
+      case 4: renderText(name, 17, 206.75, 9, 2, 3);
+              renderText(manufacturer, 39, 206.75, 6, 2, 3);
+              renderText(batch, 54, 206.75, 6, 2, 3);
+              if (expiry) renderText(expiry, 69, 206.75, 6, 2, 3);
+              renderText(dose, 85, 206.75, 5, 1, 0);
+              renderText('mg', 88, 209.75, 2, 1, 0);
+              renderText(route, 97.25, 206.75, 5, 2, 3);
+              renderText(frequency, 109.5, 206.75, 7, 2, 3);
+              renderText(therapyStart, 129, 206.75, 6, 2, 3);
+              renderText(therapyEnd, 149, 206.75, 6, 2, 3);
+              renderText(reason, 167.5, 206.75, 15, 2, 3);
+              switch (stop) {
+                case 'yes': renderImage(tick, 'PNG', 31, 231.75, 4, 4);
+                            if (stopReduced != "") renderText(stopReduced + ' mg', 91, 234.75, 8, 1, 0);
+                            break;
+                case 'no': renderImage(tick, 'PNG', 46, 231.75, 4, 4);
+                           break;
+                case 'unknown': renderImage(tick, 'PNG', 62, 231.75, 4, 4);
+                                break;
+                case 'na': renderImage(tick, 'PNG', 77, 231.75, 4, 4);
+                           break;
+              }
+              break;
+    }
     formReset();
     $('#medication-add').modal('close');
     makeToast('Medication added!', 4000, 'rounded');

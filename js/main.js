@@ -168,6 +168,10 @@ function processReactionData() {
     makeToast('Start date must be before end date!');
     flag = false;
   }
+  if (flag == true) {
+    renderText(startDate, 65, 83, 10, 1, 0);
+    renderText(endDate, 65, 88, 10, 1, 0);
+  }
   return flag;
 }
 

@@ -438,6 +438,8 @@ function medicationAdd() {
     medicationCount = medicationCount + 1;
     switch (medicationCount) {
       case 1: renderText(name, 17, 181, 9, 2, 3);
+              renderText(manufacturer, 39, 181, 6, 2, 3);
+              renderText(batch, 54, 181, 6, 2, 3);
               break;
       case 2: break;
       case 3: break;

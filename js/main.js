@@ -145,6 +145,16 @@ function processReactionData() {
     makeToast('Description is a required field!');
     flag = false;
   }
+  else {
+    var length = 0;
+    for (var i = 0; i < chips.length; i++) {
+      length = length + chips[i].tag.length;
+    }
+    if (length > 882) {
+      makeToast('Description must be under 882 characters in length!');
+      flag = false;
+    }
+  }
   if (startDate == "") {
     makeToast('Start date is a required field!');
     flag = false;

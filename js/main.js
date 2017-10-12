@@ -459,3 +459,7 @@ function renderLine(xStart, yStart, xEnd, yEnd) {
 function renderBox(xCord, yCord) {
   doc.rect(xCord, yCord, 2, 2, 'F');
 }
+
+function render() {
+  doc.save('final.pdf');
+}

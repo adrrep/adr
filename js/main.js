@@ -250,6 +250,24 @@ function processOutcomeData() {
     renderText(concomitant, 12, 249.5, 42, 13, 3);
     renderText(test, 109, 58, 42, 7, 3);
     renderText(history, 109, 92.5, 42, 9, 3);
+    switch (serious) {
+      case 'death': renderBox(109.8, 124.3);
+                    renderText(outcomeDateDeath, 136, 126.5, 10, 1, 0);
+                    break;
+      case 'life': renderBox(109.8, 128.25);
+                   break;
+      case 'hospital': renderBox(109.8, 132.25);
+                       break;
+      case 'disability': renderBox(109.8, 139.75);
+                         break;
+      case 'congenital': renderBox(158.25, 124.3);
+                         break;
+      case 'intervention': renderBox(158.25, 128.25);
+                           break;
+      case 'other': renderBox(158.25, 139.75);
+                    renderText(seriousSpec, 180.5, 141.25, 9, 1, 0);
+                    break;
+    }
   }
   return flag;
 }

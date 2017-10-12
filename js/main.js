@@ -446,3 +446,16 @@ function setupRender() {
   doc.setFont("courier");
   doc.setFontSize(10);
 }
+
+function renderImage(img, format, xCord, yCord, xSize, ySize) {
+  doc.addImage(img, format, xCord, yCord, xSize, ySize);
+}
+
+function renderLine(xStart, yStart, xEnd, yEnd) {
+  doc.setDrawColor(255);
+  doc.line(xStart, yStart, xEnd, yEnd);
+}
+
+function renderBox(xCord, yCord) {
+  doc.rect(xCord, yCord, 2, 2, 'F');
+}

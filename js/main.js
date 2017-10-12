@@ -268,6 +268,21 @@ function processOutcomeData() {
                     renderText(seriousSpec, 180.5, 141.25, 9, 1, 0);
                     break;
     }
+    switch (outcome) {
+      case 'fatal': renderBox(109.8, 149.5);
+                    break;
+      case 'recovering': renderBox(133.8, 149.5);
+                         break;
+      case 'unknown': renderBox(158.3, 149.5);
+                      break;
+      case 'continuing': renderBox(109.8, 153.35);
+                         break;
+      case 'recovered': renderBox(133.8, 153.35);
+                        break;
+      case 'other': renderBox(158.3, 153.35);
+                    renderText(outcomeSpec, 180.5, 155.25, 9, 1, 0);
+                    break;
+    }
   }
   return flag;
 }

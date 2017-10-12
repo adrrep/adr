@@ -447,6 +447,7 @@ function medicationAdd() {
               renderText(frequency, 109.5, 181, 7, 2, 3);
               renderText(therapyStart, 129, 181, 6, 2, 3);
               renderText(therapyEnd, 149, 181, 6, 2, 3);
+              renderText(reason, 167.5, 181, 15, 2, 3);
               break;
       case 2: break;
       case 3: break;

@@ -442,7 +442,7 @@ function chunkSubstr(str, size) {
 var doc;
 function setupRender() {
   doc = new jsPDF('p', 'mm', 'a4');
-  doc.addImage(imgData, 'JPEG', 0, 0, 210, 297);
+  renderImage(form, 'JPEG', 0, 0, 210, 297);
   doc.setFont("courier");
   doc.setFontSize(10);
 }

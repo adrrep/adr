@@ -107,13 +107,7 @@ function processPatientData() {
   var flag = true;
   var initials = document.getElementById('initials').value;
   var age = document.getElementById('age').value;
-  var genderFields = document.getElementsByName('gender');
-  var gender;
-  for (var i = 0; i < genderFields.length; i++) {
-      if (genderFields[i].checked){
-          gender = genderFields[i].id;
-      }
-  }
+  var gender = $("input[type='radio'][name='gender']:checked").val();
   var weight = document.getElementById('weight').value;
   if (initials == "") {
     makeToast('Initials is a required field!');
@@ -130,6 +124,14 @@ function processPatientData() {
   if (weight <= 0) {
     makeToast('Weight is a required field!');
     flag = false;
+  }
+  if (flag == true) {
+    setupRender();
+    renderText(initials, 12, 66, 16, 1, 0);
+    if (gender == 'male') renderBox(86.35, 58);
+    else if (gender == 'female') renderBox(95.5, 58);
+    renderText(age, 58, 66.5, 5, 1, 0);
+    renderText(weight, 89, 69, 3, 1, 0);
   }
   return flag;
 }

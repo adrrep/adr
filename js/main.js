@@ -130,6 +130,7 @@ function processPatientData() {
     renderText(initials, 12, 66, 16, 1, 0);
     if (gender == 'male') renderBox(86.35, 58);
     else if (gender == 'female') renderBox(95.5, 58);
+    renderText(age, 58, 66.5, 5, 1, 0);
   }
   return flag;
 }

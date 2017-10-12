@@ -438,7 +438,7 @@ function medicationAdd() {
     medicationCount = medicationCount + 1;
     formReset();
     $('#medication-add').modal('close');
-    Materialize.toast('Medication added!', 4000, 'rounded');
+    makeToast('Medication added!', 4000, 'rounded');
     var divToAdd = "<div class='card blue lighten-4'><div class='card-content'><span class='card-title'>"+ name +"</span><p>"+ manufacturer + "</p></div></div>";
     $('#insert').before(divToAdd);
     if (medicationCount == 4) {

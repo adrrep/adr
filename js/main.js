@@ -107,13 +107,7 @@ function processPatientData() {
   var flag = true;
   var initials = document.getElementById('initials').value;
   var age = document.getElementById('age').value;
-  var genderFields = document.getElementsByName('gender');
-  var gender;
-  for (var i = 0; i < genderFields.length; i++) {
-      if (genderFields[i].checked){
-          gender = genderFields[i].id;
-      }
-  }
+  var gender = $("input[type='radio'][name='gender']:checked").val();
   var weight = document.getElementById('weight').value;
   if (initials == "") {
     makeToast('Initials is a required field!');

@@ -131,6 +131,9 @@ function processPatientData() {
     makeToast('Weight is a required field!');
     flag = false;
   }
+  if (flag == true) {
+    setupRender();
+  }
   return flag;
 }
 

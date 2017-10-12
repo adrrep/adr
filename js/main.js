@@ -128,6 +128,8 @@ function processPatientData() {
   if (flag == true) {
     setupRender();
     renderText(initials, 12, 66, 16, 1, 0);
+    if (gender == 'male') renderBox(86.35, 58);
+    else if (gender == 'female') renderBox(95.5, 58);
   }
   return flag;
 }

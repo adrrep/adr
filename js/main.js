@@ -246,6 +246,9 @@ function processOutcomeData() {
       }
     }
   }
+  if (flag == true) {
+    renderText(concomitant, 12, 249.5, 42, 13, 3);
+  }
   return flag;
 }
 

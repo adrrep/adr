@@ -208,6 +208,22 @@ function processOutcomeData() {
       flag = false;
     }
   }
+  var outcomeDateDeath;
+  if (outcome == 'death') {
+    outcomeDateDeath = $('#date-death').val();
+    if (outcomeDateDeath == "") {
+      makeToast('Specific date of death is a required field!');
+      flag = false;
+    }
+    else {
+      outcomeDateDeathCorrected = new Date(changeDateFormat(outcomeDateDeath)).getTime();
+      todaysDate = new Date(getTodaysDate()).getTime();
+      if (endDateCorrected > todaysDate) {
+        makeToast('Date of death must be before or on the date today!');
+        flag = false;
+      }
+    }
+  }
   return flag;
 }
 

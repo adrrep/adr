@@ -217,6 +217,22 @@ function processOutcomeData() {
       flag = false;
     }
   }
+  var seriousDateDeath;
+  if (serious == 'death') {
+    seriousDateDeath = $('#date-death').val();
+    if (seriousDateDeath == "") {
+      makeToast('Specific date of death is a required field!');
+      flag = false;
+    }
+    else {
+      seriousDateDeathCorrected = new Date(changeDateFormat(seriousDateDeath)).getTime();
+      todaysDate = new Date(getTodaysDate()).getTime();
+      if (seriousDateDeathCorrected > todaysDate) {
+        makeToast('Date of death must be before or on the date today!');
+        flag = false;
+      }
+    }
+  }
   var outcome = $("input[type='radio'][name='outcome']:checked").val();
   if (outcome == null) {
     makeToast('Outcome of reaction is a required field!');
@@ -230,29 +246,13 @@ function processOutcomeData() {
       flag = false;
     }
   }
-  var outcomeDateDeath;
-  if (outcome == 'death') {
-    outcomeDateDeath = $('#date-death').val();
-    if (outcomeDateDeath == "") {
-      makeToast('Specific date of death is a required field!');
-      flag = false;
-    }
-    else {
-      outcomeDateDeathCorrected = new Date(changeDateFormat(outcomeDateDeath)).getTime();
-      todaysDate = new Date(getTodaysDate()).getTime();
-      if (endDateCorrected > todaysDate) {
-        makeToast('Date of death must be before or on the date today!');
-        flag = false;
-      }
-    }
-  }
   if (flag == true) {
     renderText(concomitant, 12, 249.5, 42, 13, 3);
     renderText(test, 109, 58, 42, 7, 3);
     renderText(history, 109, 92.5, 42, 9, 3);
     switch (serious) {
       case 'death': renderBox(109.8, 124.3);
-                    renderText(outcomeDateDeath, 136, 126.5, 10, 1, 0);
+                    renderText(seriousDateDeath, 136, 126.5, 10, 1, 0);
                     break;
       case 'life': renderBox(109.8, 128.25);
                    break;

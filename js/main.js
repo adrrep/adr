@@ -448,6 +448,17 @@ function medicationAdd() {
               renderText(therapyStart, 129, 181, 6, 2, 3);
               renderText(therapyEnd, 149, 181, 6, 2, 3);
               renderText(reason, 167.5, 181, 15, 2, 3);
+              switch (stop) {
+                case 'yes': renderImage(tick, 'PNG', 31, 219.25, 4, 4);
+                            if (stopReduced != "") renderText(stopReduced + ' mg', 91, 222.25, 8, 1, 0);
+                            break;
+                case 'no': renderImage(tick, 'PNG', 46, 219.25, 4, 4);
+                           break;
+                case 'unknown': renderImage(tick, 'PNG', 62, 219.25, 4, 4);
+                                break;
+                case 'na': renderImage(tick, 'PNG', 77, 219.25, 4, 4);
+                           break;
+              }
               break;
       case 2: break;
       case 3: break;

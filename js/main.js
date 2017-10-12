@@ -29,10 +29,44 @@ $(document).ready(function(){
   $('#medication-add').modal();
   enableSpecFieldOnRadio('stop','#stop-reduced','yes');
   //enableSpecFieldOnRadio('reintro','#reintro-reduced');
-  enableSpecFieldOnRadio('serious','#serious-spec','other');
+  enableSpecFieldOnRadio2('serious','other','#serious-spec','death','#date-death','#date-death-label');
   enableSpecFieldOnRadio('outcome','#outcome-spec','other');
   setupTabs();
 });
+
+function enableSpecFieldOnRadio2(radioId, caseId1, fieldSelector1, caseId2, fieldSelector2, labelSelector) {
+  $('input[type=radio][name=' + radioId + ']').on('change', function() {
+    switch($(this).val()) {
+      case caseId1:
+        $(fieldSelector1).prop('disabled', false);
+        $(fieldSelector2).val("");
+        $(fieldSelector2).removeClass('valid');
+        $(fieldSelector2).removeClass('invalid');
+        $(fieldSelector2).prop('disabled', true);
+        $(labelSelector).css('color', 'rgba(0, 0, 0, 0.26)');
+        break;
+      case caseId2:
+        $(fieldSelector2).prop('disabled', false);
+        $(labelSelector).css('color', '#000');
+        $(fieldSelector1).val("");
+        $(fieldSelector1).removeClass('valid');
+        $(fieldSelector1).removeClass('invalid');
+        $(fieldSelector1).prop('disabled', true);
+        break;
+      default:
+        $(fieldSelector1).val("");
+        $(fieldSelector1).removeClass('valid');
+        $(fieldSelector1).removeClass('invalid');
+        $(fieldSelector1).prop('disabled', true);
+        $(fieldSelector2).val("");
+        $(fieldSelector2).removeClass('valid');
+        $(fieldSelector2).removeClass('invalid');
+        $(fieldSelector2).prop('disabled', true);
+        $(labelSelector).css('color', 'rgba(0, 0, 0, 0.26)');
+        break;
+    }
+  });
+}
 
 function setupTabs() {
   var tabUl = document.getElementById('tabs-list');
@@ -172,6 +206,22 @@ function processOutcomeData() {
     if (outcomeSpec == "") {
       makeToast('Specific other response is a required field!');
       flag = false;
+    }
+  }
+  var outcomeDateDeath;
+  if (outcome == 'death') {
+    outcomeDateDeath = $('#date-death').val();
+    if (outcomeDateDeath == "") {
+      makeToast('Specific date of death is a required field!');
+      flag = false;
+    }
+    else {
+      outcomeDateDeathCorrected = new Date(changeDateFormat(outcomeDateDeath)).getTime();
+      todaysDate = new Date(getTodaysDate()).getTime();
+      if (endDateCorrected > todaysDate) {
+        makeToast('Date of death must be before or on the date today!');
+        flag = false;
+      }
     }
   }
   return flag;

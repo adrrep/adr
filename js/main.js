@@ -180,13 +180,10 @@ function processReactionData() {
   }
   if (flag == true) {
     var description = "";
-    console.log(description);
     for (var i = 0; i < chips.length - 1; i++) {
       description = description + chips[i].tag + ", ";
-      console.log(description);
     }
     description = description + chips[i].tag;
-    console.log(description);
     renderText(description, 12, 96, 42, 21, 3);
     renderText(startDate, 65, 83, 10, 1, 0);
     renderText(endDate, 65, 88, 10, 1, 0);

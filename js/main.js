@@ -440,6 +440,9 @@ function medicationAdd() {
       case 1: renderText(name, 17, 181, 9, 2, 3);
               renderText(manufacturer, 39, 181, 6, 2, 3);
               renderText(batch, 54, 181, 6, 2, 3);
+              if (expiry) renderText(expiry, 69, 181, 6, 2, 3);
+              renderText(dose, 85, 181, 5, 1, 0);
+              renderText('mg', 88, 184, 2, 1, 0);
               break;
       case 2: break;
       case 3: break;

@@ -248,6 +248,8 @@ function processOutcomeData() {
   }
   if (flag == true) {
     renderText(concomitant, 12, 249.5, 42, 13, 3);
+    renderText(test, 109, 58, 42, 7, 3);
+    renderText(history, 109, 92.5, 42, 9, 3);
   }
   return flag;
 }

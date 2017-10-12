@@ -443,7 +443,7 @@ function medicationAdd() {
     $('#insert').before(divToAdd);
     if (medicationCount == 4) {
       makeToast("No more medications can be added!");
-      document.findElementById('medication-add').disabled = true;
+      document.getElementById('medication-add-button').disabled = true;
     }
   }
 }

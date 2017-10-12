@@ -145,6 +145,16 @@ function processReactionData() {
     makeToast('Description is a required field!');
     flag = false;
   }
+  else {
+    var length = 0;
+    for (var i = 0; i < chips.length; i++) {
+      length = length + chips[i].tag.length;
+    }
+    if (length > 882) {
+      makeToast('Description must be under 882 characters in length!');
+      flag = false;
+    }
+  }
   if (startDate == "") {
     makeToast('Start date is a required field!');
     flag = false;
@@ -167,6 +177,19 @@ function processReactionData() {
   if (startDateCorrected > endDateCorrected) {
     makeToast('Start date must be before end date!');
     flag = false;
+  }
+  if (flag == true) {
+    var description = "";
+    console.log(description);
+    for (var i = 0; i < chips.length - 1; i++) {
+      description = description + chips[i].tag + ", ";
+      console.log(description);
+    }
+    description = description + chips[i].tag;
+    console.log(description);
+    renderText(description, 12, 96, 42, 21, 3);
+    renderText(startDate, 65, 83, 10, 1, 0);
+    renderText(endDate, 65, 88, 10, 1, 0);
   }
   return flag;
 }
@@ -453,7 +476,7 @@ function renderText(data, xCord, yCord, charLimit, lineLimit, lineSpacing, fontS
   var chunks = new Array();
   chunks = chunkSubstr(data, charLimit);
   if (fontSize != 10) doc.setFontSize(fontSize);
-  for (var i = 0; i < lineLimit; i++) {
+  for (var i = 0; i < chunks.length; i++) {
     doc.text(chunks[i], xCord, yCord + (i * lineSpacing));
   }
   if (fontSize != 10) doc.setFontSize(10);

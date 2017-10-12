@@ -457,7 +457,7 @@ function renderText(data, xCord, yCord, charLimit, lineLimit, lineSpacing, fontS
   var chunks = new Array();
   chunks = chunkSubstr(data, charLimit);
   if (fontSize != 10) doc.setFontSize(fontSize);
-  for (var i = 0; i < lineLimit; i++) {
+  for (var i = 0; i < chunks.length; i++) {
     doc.text(chunks[i], xCord, yCord + (i * lineSpacing));
   }
   if (fontSize != 10) doc.setFontSize(10);

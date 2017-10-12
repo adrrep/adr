@@ -443,6 +443,7 @@ function medicationAdd() {
               if (expiry) renderText(expiry, 69, 181, 6, 2, 3);
               renderText(dose, 85, 181, 5, 1, 0);
               renderText('mg', 88, 184, 2, 1, 0);
+              renderText(route, 97.25, 181, 5, 2, 3);
               break;
       case 2: break;
       case 3: break;

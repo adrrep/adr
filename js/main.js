@@ -133,6 +133,7 @@ function processPatientData() {
   }
   if (flag == true) {
     setupRender();
+    renderText(initials, 12, 66, 16, 1, 0);
   }
   return flag;
 }

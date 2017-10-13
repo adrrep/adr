@@ -10,7 +10,7 @@ body {
 }
 main {
   flex: 1 0 auto;
-  background-image: url("../images/tile.png"), linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  background-image: url("../images/tile.png"), linear-gradient(to top, #e7f0fd 0%, #e7f0fd 100%);
 }
 nav .responsive-img {
   height: 62px;

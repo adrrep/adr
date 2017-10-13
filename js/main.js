@@ -4,6 +4,9 @@
 * GNU Affero General Public License 3.0 (https://github.com/divayprakash/adr/blob/master/LICENSE)
 */
 $(document).ready(function(){
+  window.onbeforeunload = function (e) {
+    return "Are you sure you want to leave? Any form input so far will be lost!";
+  };
   $('.button-collapse').sideNav();
   var helpOpen = false;
   $('#help-fab').click(function(e) {
@@ -115,6 +118,9 @@ function processPatientData() {
   if (initials == "") {
     makeToast('Initials is a required field!');
     flag = false;
+  }
+  else {
+    initials = initials.toUpperCase();
   }
   if (age == "") {
     makeToast('Age is a required field!');
@@ -383,6 +389,8 @@ function gotoNextTab(present, next, sel) {
   nextTab.classList.remove('disabled');
   setupTabs();
   $('ul.tabs').tabs('select_tab', sel);
+  var x = $("header").position();
+  window.scrollTo(x.left, x.top);
 }
 
 function enableSpecFieldOnRadio(radioId, fieldSelector, caseId) {
@@ -459,6 +467,13 @@ function medicationAdd() {
   if (therapyStartCorrected > therapyEndCorrected) {
     makeToast('Therapy start date must be before therapy end date!');
     flag = false;
+  }
+  if (expiry != "") {
+    var expiryCorrected = new Date(changeDateFormat(expiry)).getTime();
+    if (therapyEndCorrected > expiryCorrected) {
+      makeToast('Expiry must be after therapy end date!');
+      flag = false;
+    }
   }
   var duration;
   if (flag) duration = (therapyEndCorrected - therapyStartCorrected) / (1000 * 24 * 60 * 60);

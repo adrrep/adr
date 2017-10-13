@@ -12,8 +12,7 @@ Modernizr.on('datauri', function(result) {
   var inputTypesTest = Modernizr.inputtypes.date && Modernizr.inputtypes.email && Modernizr.inputtypes.number && Modernizr.inputtypes.range && Modernizr.inputtypes.tel;
   var mediaQueriesTest = Modernizr.mediaqueries;
   var placeholderTest = Modernizr.placeholder;
-  var sessionStorageTest = Modernizr.sessionstorage;
-  var totalTest = dataUriTest && formValidationTest && hiddenTest && inputTest && inputTypesTest && mediaQueriesTest && placeholderTest && sessionStorageTest;
+  var totalTest = dataUriTest && formValidationTest && hiddenTest && inputTest && inputTypesTest && mediaQueriesTest && placeholderTest;
   if (totalTest) document.getElementById('warning').style.display = 'none';
   else document.getElementById('main-div').style.display = 'none';
 });

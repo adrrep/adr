@@ -4,6 +4,9 @@
 * GNU Affero General Public License 3.0 (https://github.com/divayprakash/adr/blob/master/LICENSE)
 */
 $(document).ready(function(){
+  window.onbeforeunload = function (e) {
+    return "Are you sure you want to leave? Any form input so far will be lost!";
+  };
   $('.button-collapse').sideNav();
   var helpOpen = false;
   $('#help-fab').click(function(e) {

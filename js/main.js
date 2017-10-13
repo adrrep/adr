@@ -636,5 +636,7 @@ function renderBox(xCord, yCord) {
 }
 
 function render() {
+  doc.addPage('a4','p');
+  renderImage(form2, 'JPEG', 0, 0, 210, 297);
   doc.save('final.pdf');
 }

@@ -346,6 +346,7 @@ function processReporterData() {
     renderText(phone, 160, 263.5, 15, 1, 0);
     if (speciality != "") renderText(speciality, 128, 268, 12, 2, 3.5);
     renderText(occupation, 109, 282, 20, 2, 3.5);
+    renderText(dateReport, 164.5, 283.5, 10, 1, 0);
   }
   return flag;
 }

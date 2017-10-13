@@ -463,6 +463,13 @@ function medicationAdd() {
     makeToast('Therapy start date must be before therapy end date!');
     flag = false;
   }
+  if (expiry != "") {
+    var expiryCorrected = new Date(changeDateFormat(expiry)).getTime();
+    if (therapyEndCorrected > expiryCorrected) {
+      makeToast('Expiry must be after therapy end date!');
+      flag = false;
+    }
+  }
   var duration;
   if (flag) duration = (therapyEndCorrected - therapyStartCorrected) / (1000 * 24 * 60 * 60);
   var reason = $('#reason').val();

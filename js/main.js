@@ -98,7 +98,7 @@ function formSubmit(id) {
       if (processOutcomeData()) gotoNextTab('outcome-tab', 'reporter-tab', 'reporter');
       break;
     case 'reporter-submit':
-      if (processReporterData()) alert('TODO!!!');
+      if (processReporterData()) render();
       break;
   }
 }
@@ -337,6 +337,17 @@ function processReporterData() {
     flag = false;
   }
   var dateReport = changeDateFormat(getTodaysDate());
+  if (flag == true) {
+    renderText(reporterName, 157, 246, 18, 1, 0);
+    renderText(address1, 116, 250, 37, 1, 0);
+    if (address2 != "") renderText(address2, 116, 254.5, 37, 1, 0);
+    renderText(pincode, 132, 259, 6, 1, 0);
+    renderText(email, 161.5, 257.5, 22, 2, 2, 8);
+    renderText(phone, 160, 263.5, 15, 1, 0);
+    if (speciality != "") renderText(speciality, 128, 268, 12, 2, 3.5);
+    renderText(occupation, 109, 282, 20, 2, 3.5);
+    renderText(dateReport, 164.5, 283.5, 10, 1, 0);
+  }
   return flag;
 }
 

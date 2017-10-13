@@ -98,7 +98,10 @@ function formSubmit(id) {
       if (processOutcomeData()) gotoNextTab('outcome-tab', 'reporter-tab', 'reporter');
       break;
     case 'reporter-submit':
-      if (processReporterData()) render();
+      if (processReporterData()) {
+        document.getElementById('main-div').style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+      }
       break;
   }
 }

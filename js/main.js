@@ -337,6 +337,11 @@ function processReporterData() {
     flag = false;
   }
   var dateReport = changeDateFormat(getTodaysDate());
+  if (flag == true) {
+    renderText(reporterName, 157, 246, 18, 1, 0);
+    renderText(address1, 116, 250, 37, 1, 0);
+    if (address2 != "") renderText(address2, 116, 254.5, 37, 1, 0);
+  }
   return flag;
 }
 

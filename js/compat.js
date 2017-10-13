@@ -8,7 +8,7 @@ Modernizr.on('datauri', function(result) {
   dataUriTest = result.valueOf() && result.over32kb;
   var formValidationTest = Modernizr.formvalidation;
   var hiddenTest = Modernizr.hidden;
-  var inputTest = Modernizr.input.max && Modernizr.input.min && Modernizr.input.pattern && Modernizr.input.placeholder && Modernizr.input.required && Modernizr.input.step;
+  var inputTest = Modernizr.input.max && Modernizr.input.min && Modernizr.input.placeholder && Modernizr.input.required && Modernizr.input.step;
   var inputTypesTest = Modernizr.inputtypes.date && Modernizr.inputtypes.email && Modernizr.inputtypes.number && Modernizr.inputtypes.range && Modernizr.inputtypes.tel;
   var mediaQueriesTest = Modernizr.mediaqueries;
   var placeholderTest = Modernizr.placeholder;

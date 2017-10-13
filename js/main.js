@@ -116,6 +116,9 @@ function processPatientData() {
     makeToast('Initials is a required field!');
     flag = false;
   }
+  else {
+    initials = initials.toUpperCase();
+  }
   if (age == "") {
     makeToast('Age is a required field!');
     flag = false;

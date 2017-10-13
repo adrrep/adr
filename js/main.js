@@ -4,9 +4,6 @@
 * GNU Affero General Public License 3.0 (https://github.com/divayprakash/adr/blob/master/LICENSE)
 */
 $(document).ready(function(){
-  window.onbeforeunload = function (e) {
-    return "Are you sure you want to leave? Any form input so far will be lost!";
-  };
   $('.button-collapse').sideNav();
   var helpOpen = false;
   $('#help-fab').click(function(e) {
@@ -89,6 +86,9 @@ function setupTabs() {
 function formSubmit(id) {
   switch(id) {
     case 'patient-submit':
+      window.onbeforeunload = function (e) {
+        return "Are you sure you want to leave? Any form input so far will be lost!";
+      };
       if (processPatientData()) gotoNextTab('patient-tab', 'reaction-tab', 'reaction');
       break;
     case 'reaction-submit':
@@ -657,4 +657,5 @@ function render() {
   doc.addPage('a4','p');
   renderImage(form2, 'JPEG', 0, 0, 210, 297);
   doc.save('final.pdf');
+  window.onbeforeunload = null;
 }

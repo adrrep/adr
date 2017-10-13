@@ -389,6 +389,8 @@ function gotoNextTab(present, next, sel) {
   nextTab.classList.remove('disabled');
   setupTabs();
   $('ul.tabs').tabs('select_tab', sel);
+  var x = $("header").position();
+  window.scrollTo(x.left, x.top);
 }
 
 function enableSpecFieldOnRadio(radioId, fieldSelector, caseId) {

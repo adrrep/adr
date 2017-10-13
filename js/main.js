@@ -341,6 +341,9 @@ function processReporterData() {
     renderText(reporterName, 157, 246, 18, 1, 0);
     renderText(address1, 116, 250, 37, 1, 0);
     if (address2 != "") renderText(address2, 116, 254.5, 37, 1, 0);
+    renderText(pincode, 132, 259, 6, 1, 0);
+    renderText(email, 161.5, 257.5, 22, 2, 2, 8);
+    renderText(phone, 160, 263.5, 15, 1, 0);
   }
   return flag;
 }

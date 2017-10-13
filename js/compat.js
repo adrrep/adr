@@ -11,10 +11,8 @@ Modernizr.on('datauri', function(result) {
   var mediaQueriesTest = Modernizr.mediaqueries;
   var placeholderTest = Modernizr.placeholder;
   var totalTest = dataUriTest && inputTest && inputTypesTest && mediaQueriesTest && placeholderTest;
-  if (totalTest) {
-    document.getElementById('main-div').style.display = 'block';
-  }
-  else {
+  if (!totalTest) {
+    document.getElementById('main-div').style.display = 'none';
     document.getElementById('warning').style.display = 'block';
   }
 });

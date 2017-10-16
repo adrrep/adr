@@ -656,6 +656,10 @@ function renderBox(xCord, yCord) {
 function render() {
   doc.addPage('a4','p');
   renderImage(form2, 'JPEG', 0, 0, 210, 297);
+  renderText('Dr. Anoop Singh', 110, 225, 15, 1, 0);
+  renderText('Clinical Pharmacologist', 110, 229, 23, 1, 0);
+  renderText('VPS Rockland Hospital, New Delhi', 110, 233, 32, 1, 0);
+  renderText('anoop.singh@vpsrocklandhospitals.com', 110, 237, 36, 1, 0);
   doc.save('final.pdf');
   window.onbeforeunload = null;
 }

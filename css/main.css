@@ -10,7 +10,7 @@ body {
 }
 main {
   flex: 1 0 auto;
-  background: #e7f0fd url("../images/tile.png");
+  background: #e7f0fd/* url("../images/tile.png")*/;
 }
 nav .responsive-img {
   height: 62px;
